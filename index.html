@@ -49,6 +49,58 @@
       background-color: #5941a9;
     }
 
+    /* Modal (boble) styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      padding: 1rem;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 500px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.4;
+      position: relative;
+      color: #333;
+      white-space: pre-line; /* for linjeskift i tekst */
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #eee;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 30px;
+      cursor: pointer;
+      color: #333;
+      transition: background-color 0.3s ease;
+    }
+    .modal-close-btn:hover {
+      background-color: #ccc;
+    }
+
+    /* Rest av eksisterende CSS følger... */
     /* Video-boks */
     .video-boks {
       margin: 0 auto 2rem auto;
@@ -211,9 +263,9 @@
 
   <!-- NYTT: Om meg knapp under logoen -->
   <div class="ommeg-container">
-    <a href="ommeg.html" class="ommeg-knapp" target="_blank" rel="noopener noreferrer">
+    <button class="ommeg-knapp" id="ommegKnapp">
       <i class="fas fa-user"></i> Om meg
-    </a>
+    </button>
   </div>
 
   <div class="video-boks">
@@ -235,59 +287,4 @@
     <a href="https://www.youtube.com/@Princezza_nails" target="_blank" class="knapp youtube" rel="noopener noreferrer">
       <i class="fab fa-youtube"></i> YouTube
     </a>
-    <a href="https://www.facebook.com/princezzanails" target="_blank" class="knapp facebook" rel="noopener noreferrer">
-      <i class="fab fa-facebook"></i> Facebook
-    </a>
-  </div>
-
-  <a href="https://m.me/princezzanails" target="_blank" class="knapp messenger" style="margin-top: 2rem; display: inline-block;">
-    <i class="fab fa-facebook-messenger"></i> Kontakt meg
-  </a>
-
-  <div class="bildegalleri">
-    <img src="tons2.jpg" alt="Negldesign 1" />
-    <img src="tons1.jpg" alt="Negldesign 2" />
-    <img src="Sommernegler.jpeg" alt="Negldesign 3" />
-    <img src="examen2.jpeg" alt="Negldesign 4" />
-    <img src="examen stiletto.jpeg" alt="Negldesign 5" />
-    <img src="duckyeah.jpeg" alt="Negldesign 6" />
-    <img src="easter.jpeg" alt="Negldesign 7" />
-  </div>
-
-  <!-- Popup bilde container -->
-  <div class="popup-bilde-container" id="popupBildeContainer">
-    <button class="popup-close-btn" id="popupCloseBtn" aria-label="Lukk bildet">&times;</button>
-    <img src="" alt="Forstørret bilde" class="popup-bilde" id="popupBilde" />
-  </div>
-
-  <script>
-    const popupBildeContainer = document.getElementById('popupBildeContainer');
-    const popupBilde = document.getElementById('popupBilde');
-    const popupCloseBtn = document.getElementById('popupCloseBtn');
-
-    document.querySelectorAll('.bildegalleri img').forEach(img => {
-      img.addEventListener('click', () => {
-        popupBilde.src = img.src;
-        popupBilde.alt = img.alt;
-        popupBildeContainer.classList.add('active');
-      });
-    });
-
-    popupCloseBtn.addEventListener('click', () => {
-      popupBildeContainer.classList.remove('active');
-      popupBilde.src = '';
-      popupBilde.alt = '';
-    });
-
-    // Lukk også hvis klikker utenfor bildet
-    popupBildeContainer.addEventListener('click', (e) => {
-      if(e.target === popupBildeContainer){
-        popupBildeContainer.classList.remove('active');
-        popupBilde.src = '';
-        popupBilde.alt = '';
-      }
-    });
-  </script>
-
-</body>
-</html>
+    <a href="https://www.facebook.com/princezzanails" target="_blank" class="knapp
