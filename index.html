@@ -40,65 +40,13 @@
       cursor: pointer;
       text-decoration: none;
       color: white;
-      background-color: #6a5acd; /* lilla farge */
+      background-color: #6a5acd; /* en lilla farge, kan endres */
       box-shadow: 0 3px 6px rgba(0,0,0,0.2);
       transition: background-color 0.3s ease;
     }
 
     .ommeg-knapp:hover {
       background-color: #5941a9;
-    }
-
-    /* Modal styling */
-    .modal {
-      display: none; /* skjult som standard */
-      position: fixed;
-      z-index: 9999;
-      left: 0; top: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background-color: #fff;
-      margin: auto;
-      padding: 2rem;
-      border-radius: 12px;
-      max-width: 500px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      position: relative;
-      text-align: left;
-    }
-
-    .modal-content h2 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-    }
-
-    .modal-content p {
-      line-height: 1.5;
-      font-size: 1rem;
-      color: #333;
-    }
-
-    .close {
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      color: #333;
-      font-size: 24px;
-      font-weight: bold;
-      cursor: pointer;
-      border: none;
-      background: none;
-    }
-
-    .close:hover {
-      color: #6a5acd;
     }
 
     /* Video-boks */
@@ -263,120 +211,80 @@
 
   <!-- NYTT: Om meg knapp under logoen -->
   <div class="ommeg-container">
-    <button class="ommeg-knapp" id="openOmMeg">
+    <a href="ommeg.html" class="ommeg-knapp" target="_blank" rel="noopener noreferrer">
       <i class="fas fa-user"></i> Om meg
-    </button>
-  </div>
-
-  <!-- Modal vindu for Om meg -->
-  <div id="omMegModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="omMegTitle" aria-describedby="omMegDesc">
-    <div class="modal-content">
-      <button class="close" id="closeOmMeg" aria-label="Lukk modal">&times;</button>
-      <h2 id="omMegTitle">Om meg</h2>
-      <p id="omMegDesc">Hei! Jeg heter Princezza og driver med negldesign. Jeg brenner for å lage fine negler og inspirere andre. Velkommen til min nettside!</p>
-    </div>
+    </a>
   </div>
 
   <div class="video-boks">
-    <iframe src="https://www.youtube.com/embed/lnA3lwyAybM" title="YouTube video" allowfullscreen></iframe>
+    <!-- Video-spilleliste fra YouTube-kanalen -->
+    <iframe
+      src="https://www.youtube.com/embed/videoseries?list=UUH7dKSkusr6GJQf5TciIyNw"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
   </div>
 
   <div class="knapper">
-    <a href="https://www.tiktok.com/@princezza_nails" class="knapp tiktok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a>
-    <a href="https://www.instagram.com/princezza_nails/" class="knapp instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
-    <a href="https://www.youtube.com/channel/UCEtg0sj2re99nOrxOYQnlqQ" class="knapp youtube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
-    <a href="https://www.facebook.com/princezza.nails" class="knapp facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
-    <a href="https://www.messenger.com/t/100000412780392" class="knapp messenger" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-messenger"></i> Messenger</a>
+    <a href="https://www.tiktok.com/@princezza_nails" target="_blank" class="knapp tiktok" rel="noopener noreferrer">
+      <i class="fab fa-tiktok"></i> TikTok
+    </a>
+    <a href="https://www.instagram.com/princezza_nails/" target="_blank" class="knapp instagram" rel="noopener noreferrer">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://www.youtube.com/@Princezza_nails" target="_blank" class="knapp youtube" rel="noopener noreferrer">
+      <i class="fab fa-youtube"></i> YouTube
+    </a>
+    <a href="https://www.facebook.com/princezzanails" target="_blank" class="knapp facebook" rel="noopener noreferrer">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
   </div>
+
+  <a href="https://m.me/princezzanails" target="_blank" class="knapp messenger" style="margin-top: 2rem; display: inline-block;">
+    <i class="fab fa-facebook-messenger"></i> Kontakt meg
+  </a>
 
   <div class="bildegalleri">
-    <img src="w.jpg" alt="Negl 1" />
-    <img src="w1.jpg" alt="Negl 2" />
-    <img src="w2.jpg" alt="Negl 3" />
-    <img src="w3.jpg" alt="Negl 4" />
-    <img src="w4.jpg" alt="Negl 5" />
-    <img src="w5.jpg" alt="Negl 6" />
-    <img src="w6.jpg" alt="Negl 7" />
-    <img src="w7.jpg" alt="Negl 8" />
+    <img src="tons2.jpg" alt="Negldesign 1" />
+    <img src="tons1.jpg" alt="Negldesign 2" />
+    <img src="Sommernegler.jpeg" alt="Negldesign 3" />
+    <img src="examen2.jpeg" alt="Negldesign 4" />
+    <img src="examen stiletto.jpeg" alt="Negldesign 5" />
+    <img src="duckyeah.jpeg" alt="Negldesign 6" />
+    <img src="easter.jpeg" alt="Negldesign 7" />
   </div>
 
-  <!-- Popup bilde -->
-  <div class="popup-bilde-container" id="popupBildeContainer" role="dialog" aria-modal="true" aria-label="Forstørret bilde">
-    <button class="popup-close-btn" id="popupCloseBtn" aria-label="Lukk bildevisning">&times;</button>
-    <img src="" alt="" class="popup-bilde" id="popupBilde" />
+  <!-- Popup bilde container -->
+  <div class="popup-bilde-container" id="popupBildeContainer">
+    <button class="popup-close-btn" id="popupCloseBtn" aria-label="Lukk bildet">&times;</button>
+    <img src="" alt="Forstørret bilde" class="popup-bilde" id="popupBilde" />
   </div>
 
   <script>
-    // Modal funksjonalitet for "Om meg"
-    const openOmMegBtn = document.getElementById('openOmMeg');
-    const omMegModal = document.getElementById('omMegModal');
-    const closeOmMegBtn = document.getElementById('closeOmMeg');
-
-    openOmMegBtn.addEventListener('click', () => {
-      omMegModal.style.display = 'flex';
-      omMegModal.setAttribute('aria-hidden', 'false');
-      // Fokuser close-knappen for tilgjengelighet
-      closeOmMegBtn.focus();
-    });
-
-    closeOmMegBtn.addEventListener('click', () => {
-      omMegModal.style.display = 'none';
-      omMegModal.setAttribute('aria-hidden', 'true');
-      openOmMegBtn.focus();
-    });
-
-    // Lukk modal ved å klikke utenfor modal-innholdet
-    window.addEventListener('click', (event) => {
-      if (event.target === omMegModal) {
-        omMegModal.style.display = 'none';
-        omMegModal.setAttribute('aria-hidden', 'true');
-        openOmMegBtn.focus();
-      }
-    });
-
-    // Popup bilde-funksjonalitet
-    const bilder = document.querySelectorAll('.bildegalleri img');
-    const popupContainer = document.getElementById('popupBildeContainer');
+    const popupBildeContainer = document.getElementById('popupBildeContainer');
     const popupBilde = document.getElementById('popupBilde');
     const popupCloseBtn = document.getElementById('popupCloseBtn');
 
-    bilder.forEach((bilde) => {
-      bilde.addEventListener('click', () => {
-        popupBilde.src = bilde.src;
-        popupBilde.alt = bilde.alt;
-        popupContainer.classList.add('active');
-        popupCloseBtn.focus();
+    document.querySelectorAll('.bildegalleri img').forEach(img => {
+      img.addEventListener('click', () => {
+        popupBilde.src = img.src;
+        popupBilde.alt = img.alt;
+        popupBildeContainer.classList.add('active');
       });
     });
 
     popupCloseBtn.addEventListener('click', () => {
-      popupContainer.classList.remove('active');
+      popupBildeContainer.classList.remove('active');
       popupBilde.src = '';
       popupBilde.alt = '';
     });
 
-    // Lukk popup bilde ved å klikke utenfor bildet
-    popupContainer.addEventListener('click', (e) => {
-      if (e.target === popupContainer) {
-        popupContainer.classList.remove('active');
+    // Lukk også hvis klikker utenfor bildet
+    popupBildeContainer.addEventListener('click', (e) => {
+      if(e.target === popupBildeContainer){
+        popupBildeContainer.classList.remove('active');
         popupBilde.src = '';
         popupBilde.alt = '';
-      }
-    });
-
-    // Tastaturstøtte for modal og popup (Escape)
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        if (omMegModal.style.display === 'flex') {
-          omMegModal.style.display = 'none';
-          omMegModal.setAttribute('aria-hidden', 'true');
-          openOmMegBtn.focus();
-        }
-        if (popupContainer.classList.contains('active')) {
-          popupContainer.classList.remove('active');
-          popupBilde.src = '';
-          popupBilde.alt = '';
-        }
       }
     });
   </script>
