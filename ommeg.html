@@ -1,3 +1,1190 @@
+
+
+Her er all koden til nettsiden min. I knappen " om meg" vil jeg at det skal åpne en ny side med litt tekst om meg og bilder av meg. kan du hjelpe meg å lage kode til dette? og fortelle meg hvor jeg skal legge den koden for jeg kan ikke egentlig å kode XD
+
+Teksten jeg vil ha der er : "Litt om meg: Jeg er ei jente født på 90 tallet. Jeg driver ikke en profesjonell salong, jeg driver hjemme i mitt eget hjem enn så lenge. Jeg har en drøm om å en dag åpne en salong!
+
+Yess, dette fikser vi 😄✨ Vi lager en liten “hemmelig dør” bak Om meg-knappen som åpner en ny side med teksten din og bilder. Jeg forklarer det som Lego, ikke rakettforskning.
+
+🧩 Steg 1: Lag en ny side
+Lag en ny fil i samme mappe som nettsiden din.
+
+Navn den:
+
+ommeg.html
+📝 Steg 2: Lim inn denne koden i ommeg.html
+Du kan kopiere alt dette:
+
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Om meg</title>
+</head>
+<body>
+
+    <h1>Om meg</h1>
+
+    <p>
+        Litt om meg: Jeg er ei jente født på 90 tallet. 
+        Jeg driver ikke en profesjonell salong, jeg driver hjemme i mitt eget hjem enn så lenge. 
+        Jeg har en drøm om å en dag åpne en salong!
+    </p>
+
+    <h2>Bilder av meg</h2>
+
+    <img src="bilde1.jpg" alt="Bilde av meg" width="300">
+    <img src="bilde2.jpg" alt="Bilde av meg" width="300">
+
+</body>
+</html>
+🖼️ Steg 3: Legg til bilder
+Legg bildene dine i samme mappe som nettsiden
+
+Endre navnene i koden hvis bildene dine heter noe annet
+
+Eksempel:
+
+<img src="meg.jpg">
+🔘 Steg 4: Koble knappen til siden
+Finn "Om meg"-knappen i hovedsiden din (den fila du allerede har).
+
+Den ser kanskje sånn ut:
+
+<button>Om meg</button>
+Bytt den ut med:
+
+<a href="ommeg.html">
+    <button>Om meg</button>
+</a>
+🎉 Ferdig!
+Nå skjer dette:
+
+Når du klikker Om meg → åpnes ny side ✨
+
+Der ligger teksten din + bilder som en liten digital intro av deg
+
+🌸 Bonus (valgfritt, men nice)
+Vil du ha en “tilbake”-knapp på siden?
+
+Legg dette nederst i ommeg.html:
+
+<a href="index.html">Tilbake</a>
+(Bytt index.html hvis forsiden din heter noe annet)
+
+Hvis du vil, kan jeg også:
+
+gjøre siden fin (rosa vibes? mørk elegant? 👀)
+
+legge til animasjoner
+
+få det til å se mer “proft salong-nettsted” ut
+
+Bare send meg koden din, så tryller vi litt videre ✨
+
+
+Knappen er der alt da hvis du ser i koden
+
+Aha, skjønner 😄 du sitter med en knapp som ser riktig ut, men den gjør ingenting når du trykker på den. Klassisk “fin dør uten håndtak”-problem 🚪
+
+Jeg må nesten se akkurat hvordan knappen din er skrevet for å gi deg helt presis plassering… men jeg kan gi deg tre supervanlige varianter du bare kan matche mot koden din:
+
+🔍 Finn din knapp i koden
+Se etter noe som ligner på én av disse:
+
+1. Hvis du har:
+<button>Om meg</button>
+👉 Bytt den til:
+
+<a href="ommeg.html">
+    <button>Om meg</button>
+</a>
+2. Hvis du har:
+<button onclick="">Om meg</button>
+👉 Bytt til:
+
+<button onclick="window.location.href='ommeg.html'">
+    Om meg
+</button>
+3. Hvis du har en fancy knapp (div eller class):
+<div class="button">Om meg</div>
+👉 Bytt til:
+
+<a href="ommeg.html" class="button">Om meg</a>
+📍 Hvor skal du legge det?
+I hovedfila di (ofte index.html)
+
+
+jo knappen åpner en siden, men den er tom
+
+Ahaaa, da er vi nær mål 🎯 Nå har du en dør som åpner seg… men bak er det bare tomt rom 😄
+
+Det betyr nesten alltid én av disse tingene:
+
+🧠 1. Siden finnes, men er tom
+Åpne fila som knappen sender deg til (f.eks ommeg.html).
+
+👉 Hvis den er tom eller nesten tom, så må du lime inn innhold.
+
+Bruk dette:
+
+<!DOCTYPE html>
+<html lang
+
+Du ser all koden,l du vet den funker. men hjelp meg å fyll siden med det jeg skrev? :)
+
+Perfekt, da er det bare å “møblere rommet” 🛋️✨ Siden finnes allerede, så vi skal bare fylle den med liv.
+
+🧩 Dette gjør du:
+Åpne fila som knappen leder til (f.eks ommeg.html)
+
+Slett det som er inni <body> (eller der det er tomt)
+
+Lim inn dette:
+
+<h1>Om meg</h1>
+
+<p>
+Litt om meg: Jeg er ei jente født på 90 tallet. 
+Jeg driver ikke en profesjonell salong, jeg driver hjemme i mitt eget hjem enn så lenge. 
+Jeg har en drøm om å en dag åpne en salong!
+</p>
+
+<h2>Bilder av meg</h2>
+
+<img src="meg1.jpg" alt="Bilde av meg" width="300">
+<img src="meg2.jpg" alt="Bilde av meg" width="300">
+🖼️ Viktig med bildene
+Dette er den vanligste snubletråden:
+
+Legg bildene i samme mappe som nettsiden
+
+Bytt navn hvis dine bilder heter noe annet
+
+Eksempel:
+
+<img src="selfie.jpg">
+🎀 Hvis du vil at det skal se litt finere ut
+Legg til litt styling også:
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    background-color: #fff0f5;
+}
+
+img {
+    margin: 10px;
+    border-radius: 10px;
+}
+</style>
+👉 Dette legger du inni <head> hvis du har det
+(hvis ikke, kan du lime det øverst)
+
+🎉 Resultat
+Når du trykker “Om meg” nå:
+
+Teksten din vises 💬
+
+Bildene dine dukker opp 📸
+
+Siden føles faktisk som deg ✨
+
+Hvis du vil, kan vi gjøre neste steg også:
+
+Lage det mer “salong vibe” 💅
+
+Legge til Instagram-link
+
+Gjøre det skikkelig proft (uten at det blir komplisert)
+
+Bare si ifra 😄
+
+
+åpne fila? alt ligger i github
+
+Aha, GitHub ja 😄 nå snakker vi digitalt skap med mange skuffer i stedet for én lokal mappe.
+
+Her er den enkle måten å fikse det på:
+
+🧭 Steg 1: Finn riktig fil på GitHub
+Gå inn på repoet ditt på 
+
+Finn fila som knappen åpner (f.eks ommeg.html)
+
+Klikk på den
+
+✏️ Steg 2: Rediger fila
+Trykk på ✏️ “Edit” oppe til høyre
+
+Nå ser du koden direkte i nettleseren
+
+🧩 Steg 3: Lim inn innholdet
+Finn <body> i fila. Det kan se sånn ut:
+
+<body>
+
+</body>
+👉 Lim inn dette mellom der:
+
+<h1>Om meg</h1>
+
+<p>
+Litt om meg: Jeg er ei jente født på 90 tallet. 
+Jeg driver ikke en profesjonell salong, jeg driver hjemme i mitt eget hjem enn så lenge. 
+Jeg har en drøm om å en dag åpne en salong!
+</p>
+
+<h2>Bilder av meg</h2>
+
+<img src="meg1.jpg" alt="Bilde av meg" width="300">
+<img src="meg2.jpg" alt="Bilde av meg" width="300">
+💾 Steg 4: Lagre (veldig viktig)
+Scroll ned og trykk:
+
+👉 “Commit changes”
+
+Skriv gjerne:
+
+la til innhold på om meg siden
+🖼️ Steg 5: Bilder (hvis de ikke vises)
+Du må også laste opp bildene:
+
+Trykk “Add file” → “Upload files”
+
+Last opp bildene dine
+
+Pass på at navnene matcher:
+
+meg1.jpg
+
+meg2.jpg
+
+🎉 Resultat
+Når du nå trykker “Om meg”:
+
+Ikke lenger en tom side 👻
+
+Men en liten presentasjon av deg 💅✨
+
+Hvis du vil, kan du sende meg link til repoet ditt, så kan jeg si eksakt hvilken fil og linje du skal lime det inn på.
+
+
+jeg ivl ikke ha html kode.. jeg vil ha css som resten. jeg sende rdeg koden min på nytt for du virker på villspor.
+
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Princezza_nails</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #fff;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Logo */
+    .logo {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      display: block;
+    }
+
+    /* NYTT: Om meg knapp container */
+    .ommeg-container {
+      margin-bottom: 1.5rem;
+    }
+
+    .ommeg-knapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      background-color: #6a5acd; /* en lilla farge, kan endres */
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .ommeg-knapp:hover {
+      background-color: #5941a9;
+    }
+
+    /* Video-boks */
+    .video-boks {
+      margin: 0 auto 2rem auto;
+      max-width: 100%;
+      position: relative;
+    }
+
+    .video-boks iframe {
+      width: 560px;
+      height: 315px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border: none;
+    }
+
+    /* Knapper */
+    .knapper {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .knapp {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    .knapp i {
+      font-size: 1.3rem;
+    }
+
+    .tiktok { background-color: #000; }
+    .tiktok:hover { background-color: #222; }
+
+    .instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+    .instagram:hover { filter: brightness(1.1); }
+
+    .youtube { background-color: #FF0000; }
+    .youtube:hover { background-color: #cc0000; }
+
+    .facebook { background-color: #1877F2; }
+    .facebook:hover { background-color: #145dbf; }
+
+    .messenger {
+      background-color: #0084FF;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: 1.1rem;
+    }
+    .messenger:hover {
+      background-color: #006fdd;
+    }
+
+    /* Bildegalleri */
+    .bildegalleri {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .bildegalleri img {
+      width: 140px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .bildegalleri img:nth-child(even) { transform: rotate(2deg); }
+    .bildegalleri img:nth-child(odd) { transform: rotate(-2deg); }
+
+    .bildegalleri img:hover,
+    .bildegalleri img:active {
+      transform: scale(1.4) rotate(0deg);
+      z-index: 10;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Popup bilde container og styling */
+    .popup-bilde-container {
+      display: none; /* skjult som standard */
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .popup-bilde-container.active {
+      display: flex;
+    }
+
+    .popup-bilde {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* NYTT: Kryss-knapp */
+    .popup-close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.8);
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 30px;
+      cursor: pointer;
+      text-align: center;
+      color: #333;
+      transition: background-color 0.3s ease;
+      z-index: 10;
+    }
+
+    .popup-close-btn:hover {
+      background: rgba(255,255,255,1);
+    }
+
+    @media (max-width: 768px) {
+      .video-boks iframe {
+        width: 100%;
+        height: auto;
+      }
+
+      .bildegalleri img {
+        width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <img src="princezza logo.jpeg" alt="Logo" class="logo" />
+
+  <!-- NYTT: Om meg knapp under logoen -->
+  <div class="ommeg-container">
+    <a href="ommeg.html" class="ommeg-knapp" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-user"></i> Om meg
+    </a>
+  </div>
+
+  <div class="video-boks">
+    <!-- Video-spilleliste fra YouTube-kanalen -->
+    <iframe
+      src="https://www.youtube.com/embed/videoseries?list=UUH7dKSkusr6GJQf5TciIyNw"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="knapper">
+    <a href="https://www.tiktok.com/@princezza_nails" target="_blank" class="knapp tiktok" rel="noopener noreferrer">
+      <i class="fab fa-tiktok"></i> TikTok
+    </a>
+    <a href="https://www.instagram.com/princezza_nails/" target="_blank" class="knapp instagram" rel="noopener noreferrer">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://www.youtube.com/@Princezza_nails" target="_blank" class="knapp youtube" rel="noopener noreferrer">
+      <i class="fab fa-youtube"></i> YouTube
+    </a>
+    <a href="https://www.facebook.com/princezzanails" target="_blank" class="knapp facebook" rel="noopener noreferrer">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+  </div>
+
+  <a href="https://m.me/princezzanails" target="_blank" class="knapp messenger" style="margin-top: 2rem; display: inline-block;">
+    <i class="fab fa-facebook-messenger"></i> Kontakt meg
+  </a>
+
+  <div class="bildegalleri">
+    <img src="tons2.jpg" alt="Negldesign 1" />
+    <img src="tons1.jpg" alt="Negldesign 2" />
+    <img src="Sommernegler.jpeg" alt="Negldesign 3" />
+    <img src="examen2.jpeg" alt="Negldesign 4" />
+    <img src="examen stiletto.jpeg" alt="Negldesign 5" />
+    <img src="duckyeah.jpeg" alt="Negldesign 6" />
+    <img src="easter.jpeg" alt="Negldesign 7" />
+  </div>
+
+  <!-- Popup bilde container -->
+  <div class="popup-bilde-container" id="popupBildeContainer">
+    <button class="popup-close-btn" id="popupCloseBtn" aria-label="Lukk bildet">&times;</button>
+    <img src="" alt="Forstørret bilde" class="popup-bilde" id="popupBilde" />
+  </div>
+
+  <script>
+    const popupBildeContainer = document.getElementById('popupBildeContainer');
+    const popupBilde = document.getElementById('popupBilde');
+    const popupCloseBtn = document.getElementById('popupCloseBtn');
+
+    document.querySelectorAll('.bildegalleri img').forEach(img => {
+      img.addEventListener('click', () => {
+        popupBilde.src = img.src;
+        popupBilde.alt = img.alt;
+        popupBildeContainer.classList.add('active');
+      });
+    });
+
+    popupCloseBtn.addEventListener('click', () => {
+      popupBildeContainer.classList.remove('active');
+      popupBilde.src = '';
+      popupBilde.alt = '';
+    });
+
+    // Lukk også hvis klikker utenfor bildet
+    popupBildeContainer.addEventListener('click', (e) => {
+      if(e.target === popupBildeContainer){
+        popupBildeContainer.classList.remove('active');
+        popupBilde.src = '';
+        popupBilde.alt = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+Ahaaa nå er vi på riktig planet 🌍✨
+Du vil ikke ha en ny HTML-side full av greier… du vil at “Om meg”-siden skal se lik ut som resten, bare med ditt design + CSS. Got it.
+
+Det som skjer nå:
+👉 ommeg.html finnes
+👉 men den har ingen styling / innhold, derfor ser den tom ut
+
+💅 Løsningen (super enkel faktisk)
+Du skal lage en ny side som bruker SAMME CSS, bare med annet innhold.
+
+🧩 Steg 1: Lag ommeg.html riktig
+Gå inn på GitHub → åpne ommeg.html → trykk ✏️ Edit
+
+👉 SLETT det som er der
+👉 Lim inn dette:
+
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Om meg</title>
+
+  <!-- KOPIERT FRA DIN SIDE -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #fff;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .logo {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      display: block;
+    }
+
+    .tekst {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .meg-bilder {
+      margin-top: 2rem;
+    }
+
+    .meg-bilder img {
+      width: 200px;
+      border-radius: 10px;
+      margin: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .tilbake {
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+      color: white;
+      background-color: #6a5acd;
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Samme vibe -->
+  <img src="princezza logo.jpeg" alt="Logo" class="logo" />
+
+  <h1>Om meg</h1>
+
+  <div class="tekst">
+    <p>
+      Litt om meg: Jeg er ei jente født på 90 tallet. 
+      Jeg driver ikke en profesjonell salong, jeg driver hjemme i mitt eget hjem enn så lenge. 
+      Jeg har en drøm om å en dag åpne en salong!
+    </p>
+  </div>
+
+  <div class="meg-bilder">
+    <img src="meg1.jpg" alt="Bilde av meg">
+    <img src="meg2.jpg" alt="Bilde av meg">
+  </div>
+
+  <a href="index.html" class="tilbake">
+    ← Tilbake
+  </a>
+
+</body>
+</html>
+🖼️ Steg 2: Bilder (samme greie som før)
+Last opp bildene dine på GitHub:
+
+👉 Add file → Upload files
+
+Og sørg for at navnene matcher:
+
+meg1.jpg
+
+meg2.jpg
+
+(eller bytt navn i koden)
+
+🎯 Hva vi egentlig gjorde
+Vi:
+
+Kopierte stilen din 🎨
+
+Lagde en egen side som matcher 💅
+
+La inn teksten din + bilder 📸
+
+Resultat:
+👉 Ikke tom side lenger
+👉 Ser ut som en del av nettsiden din
+👉 Føles “proft” i stedet for glitchy 👀
+
+🌸 Hvis du vil neste nivå
+Jeg kan også:
+
+gjøre “Om meg” som en popup (så du slipper ny side)
+
+matche farger 100% med knappene dine
+
+legge til glitter-hover vibes ✨
+
+Bare si hva du vil ha, så bygger vi videre 😄
+
+
+Men hvor skal denne  legges inn? snakk til meg om at jeg skjønenr IT og har kodet 3% og ikke kan SÅ mye
+
+Perfekt, da forklarer jeg dette som om vi setter opp møbler, ikke bygger romskip 😄🪑
+
+Du trenger IKKE røre koden du allerede har (den lange du sendte). Den er fin.
+
+🧭 Hvor skal koden legges?
+👉 Svaret er:
+I en egen fil som heter ommeg.html
+
+Ikke inni den koden du sendte.
+Ikke midt i <body>.
+Ikke i <style>.
+
+Egen fil. Ny side.
+
+🪜 Steg-for-steg (GitHub måte)
+Gå inn på repoet ditt på GitHub
+
+Trykk på “Add file”
+
+Velg “Create new file”
+
+✏️ Nå viktig:
+Øverst skriver du:
+
+ommeg.html
+(helt likt som knappen din peker til her:)
+
+<a href="ommeg.html" class="ommeg-knapp">
+📥 Så limer du inn koden jeg ga deg
+Hele greia. Ikke bare deler.
+
+💾 Lagre
+Scroll ned → trykk Commit changes
+
+🎯 Hva skjer nå
+Du har:
+
+index.html → hovedsiden din 💅
+
+ommeg.html → den nye siden 👤
+
+Knappen din:
+
+<a href="ommeg.html" class="ommeg-knapp">
+👉 Den åpner nå faktisk en side med innhold (ikke tom lenger)
+
+🧠 Tenk på det sånn
+Nettsiden din er som et hus:
+
+index.html = stua 🛋️
+
+ommeg.html = et nytt rom 🚪
+
+Knappen er bare døra mellom dem.
+
+🚨 Vanlig feil (som sikkert skjedde nå)
+Du hadde:
+
+en dør (knappen) ✔️
+
+et rom (filen) ✔️
+
+men rommet var helt tomt 👻
+
+Nå har vi møblert det.
+
+Hvis du vil, kan jeg neste:
+
+gjøre siden mer “nail tech aesthetic” 💅✨
+
+eller gjøre at “Om meg” åpner som popup i stedet (litt mer fancy)
+
+Bare si hva vibe du vil ha 😄
+
+
+en ny branch?
+
+Nei 😄 ikke gjør det mer komplisert enn det trenger å være.
+
+👉 Du trenger IKKE lage ny branch.
+
+🧠 Tenk så enkelt som mulig:
+Du har én mappe (repoet ditt)
+Du legger bare til én ny fil inni der
+
+Ferdig.
+
+✅ Gjør dette:
+På GitHub:
+
+Trykk “Add file”
+
+Velg “Create new file”
+
+Skriv:
+
+ommeg.html
+Lim inn koden jeg ga deg
+
+Trykk Commit changes
+
+👉 Ikke rør branches
+👉 Ikke trykk noe advanced greier
+👉 Bare lag filen rett i main
+
+🎯 Hvorfor ikke branch?
+Branches er som:
+
+“lage en kopi av huset for å teste ting” 🏗️
+
+Du trenger bare:
+
+“legge til et nytt rom i huset ditt” 🚪
+
+💡 Mini-sjekk etterpå
+Hvis det funker:
+
+Klikk “Om meg”
+
+Ny side åpner
+
+Du ser tekst + bilder
+
+Hvis ikke:
+👉 si ifra, så feilsøker vi sammen (det er alltid én liten detalj som tuller 😄)
+
+Du er seriøst nærme nå. Dette er siste lille klikket før det faktisk føles som en ekte nettside ✨
+
+
+bro9 jeg vet ikke hvordan jeg lager en ny fil eller hva det vil si i github XD
+
+HAHA ok vi skrur ned tech-nivået til “trykk på riktig knapp og det funker” 😄💻✨
+Ingen branches, ingen rare ord. Bare klikk-klikk-ferdig.
+
+🎯 Målet:
+Vi skal lage den “Om meg”-siden på GitHub.
+
+🪜 Gjør dette NØYAKTIG:
+1. Gå inn på GitHub-repoet ditt
+Du ser lista med filer (der index.html ligger)
+
+2. Se etter denne knappen:
+👉 “Add file” (øverst, litt til høyre)
+
+Klikk på den
+
+3. Trykk:
+👉 “Create new file”
+
+4. Nå får du et tomt felt
+Øverst står det noe som “Name your file”
+
+👉 Skriv:
+
+ommeg.html
+5. STOR rute under = der koden skal inn
+👉 Lim inn koden jeg ga deg tidligere (hele greia)
+
+6. Scroll helt ned
+Du ser en knapp:
+
+👉 “Commit changes”
+
+Klikk den
+
+🎉 DONE
+Du har nå:
+
+Laget ny side ✅
+
+Koblet den til knappen din ✅
+
+Fikset tom side-problemet ✅
+
+🧪 Test det
+Gå til nettsiden din
+Trykk “Om meg”
+
+👉 Nå skal du faktisk se teksten din + bilder 😄
+
+🧠 Hvis det fortsatt er tomt
+Da er det nesten alltid:
+
+filen heter feil (må være ommeg.html)
+
+eller du ikke trykket “commit”
+
+Hvis du vil, kan du sende screenshot av GitHub-siden din, så peker jeg ut EXACT hvor du skal trykke 👀✨
+
+
+men vil ikke det fjerne siden jeg da har fra før? fordi den bruker idexen? 
+
+Nei nei nei 😄 du kommer ikke til å ødelegge noe, lover 🤝✨
+
+La oss rydde opp i forvirringen:
+
+🧠 Hvordan dette faktisk funker
+Du har nå:
+
+index.html → hovedsiden din 💅
+
+ommeg.html → en NY side 👤
+
+👉 Når du lager ommeg.html, så legger du bare til noe nytt
+👉 Du sletter ingenting
+
+📦 Tenk sånn:
+Mappa di på GitHub = en boks 📦
+
+Inni den ligger:
+
+index.html
+
+bilder
+
+osv
+
+Når du lager ommeg.html, så er det som å legge oppi en ny ting i boksen.
+
+👉 Du tar ikke ut noe
+👉 Du bare legger til
+
+🔘 Hva gjør knappen din?
+Denne:
+
+<a href="ommeg.html" class="ommeg-knapp">
+👉 betyr bare:
+“gå til den fila når jeg klikker”
+
+Den påvirker ikke index.html i det hele tatt.
+
+🚨 Det eneste som kan “ødelegge”
+er hvis du:
+
+åpner index.html
+
+og sletter koden der inne 😅
+
+👉 men det gjør du ikke
+
+🎯 Kort versjon
+Du lager ommeg.html = NY side
+
+index.html = blir akkurat som før
+
+Knappen = åpner den nye siden
+
+🧪 Etterpå
+Du vil ha:
+
+Forside ✔️
+
+Om meg side ✔️
+
+Knapp som funker ✔️
+
+Hvis du fortsatt er usikker, kan du sende meg hva du ser på GitHub akkurat nå, så guider jeg deg som en GPS med 1 meter presisjon 🧭😄
+
+
+ookej. men kan du være så snill å ikke overforkalr eog gi meg nøyaktig hva jeg skal putt og hvor, uten masse fluff? :D
+
+Jepp 👍 vi kjører helt “kopi → lim → ferdig”.
+
+1) Lag fil
+På GitHub:
+
+Add file → Create new file
+
+navn:
+
+ommeg.html
+2) Lim inn HELE dette i filen
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Om meg</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #fff;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .logo {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      display: block;
+    }
+
+    .tekst {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .meg-bilder img {
+      width: 200px;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    .tilbake {
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+      color: white;
+      background-color: #6a5acd;
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <img src="princezza logo.jpeg" class="logo" />
+
+  <h1>Om meg</h1>
+
+  <div class="tekst">
+    <p>
+      Litt om meg: Jeg er ei jente født på 90 tallet. Jeg driver ikke en profesjonell salong, jeg driver hjemme i mitt eget hjem enn så lenge. Jeg har en drøm om å en dag åpne en salong!
+    </p>
+  </div>
+
+  <div class="meg-bilder">
+    <img src="meg1.jpg">
+    <img src="meg2.jpg">
+  </div>
+
+  <a href="index.html" class="tilbake">Tilbake</a>
+
+</body>
+</html>
+3) Trykk
+Commit changes
+
+4) Ferdig
+Knappen din (ommeg.html) vil nå fungere 👍
+
+
+jeg finenr ikke ut hvordan jeg lager en ny fil.... wtf princezzanails
+/
+princezzanails
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security and quality
+Insights
+princezzanails/princezzanails
+Go to file
+Name		
+princezzanails
+princezzanails
+Tilbake til orginal
+f05738a
+ · 
+9 months ago
+CNAME
+Create CNAME
+9 months ago
+Duck.jpg
+Add files via upload
+10 months ago
+Duck.png
+Add files via upload
+10 months ago
+README.md
+Initial commit
+10 months ago
+Sommernegler.jpeg
+Add files via upload
+10 months ago
+duckyeah.jpeg
+Add files via upload
+10 months ago
+easter.jpeg
+Add files via upload
+10 months ago
+examen stiletto.jpeg
+Add files via upload
+10 months ago
+examen.jpeg
+Add files via upload
+10 months ago
+examen2.jpeg
+Add files via upload
+10 months ago
+index.html
+Tilbake til orginal
+9 months ago
+princezza logo.jpeg
+Add files via upload
+10 months ago
+tons.jpg
+Add files via upload
+10 months ago
+tons1.jpg
+Add files via upload
+10 months ago
+tons2.jpg
+Add files via upload
+10 months ago
+Repository files navigation
+README
+nettside
+About
+No description, website, or topics provided.
+Resources
+ Readme
+ Activity
+Stars
+ 0 stars
+Watchers
+ 0 watching
+Forks
+ 0 forks
+Report repository
+Releases
+No releases published
+Packages
+No packages published
+Contributors
+1
+@princezzanails
+princezzanails
+Languages
+HTML
+100.0%
+
+Ok, jeg ser hvor du er nå 😄 du er inne i repo-lista, men GitHub har gjemt “lag ny fil”-knappen litt.
+
+Vi fikser det uten stress:
+
+🟣 Slik lager du ny fil (EXAKT hvor du skal trykke)
+Du er i repoet ditt. Der du ser filene (index.html osv).
+
+👉 Øverst over fil-lista:
+
+Klikk:
+“Add file”
+
+(den er samme linje som “Go to file”)
+
+👉 Hvis du IKKE ser “Add file”
+Da er du sannsynligvis i feil visning. Gjør dette:
+
+Trykk på navnet:
+
+princezzanails
+(øverste nivå, ikke en fil)
+
+Nå skal du se lista med filer igjen
+
+Da dukker “Add file” opp
+
+🟢 Når du har trykket “Add file”
+Velg:
+👉 Create new file
+
+✏️ Så skriver du:
+Øverst:
+
+ommeg.html
+📥 Lim inn dette:
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -35,9 +1222,6 @@
 
   <p>
     Litt om meg: Jeg er ei jente født på 90 tallet. Jeg driver ikke en profesjonell salong, jeg driver hjemme i mitt eget hjem enn så lenge. Jeg har en drøm om å en dag åpne en salong!
-    Jeg er kronisk syk, så jeg har kun få klienter som jeg legger negler på og jeg kan lage press-on set på bestilling etter avtale.
-    Jeg er sertifisert for gel og polygel og er under kursing for akryl akkyrat å og trenger snart modeller for akrylnegler.
-    Ønsker du time hos meg eller å være modell (gratis) for akryl så ta gjerne kontakt med meg via facebook messenger som er linket på forsiden på hjemmesiden min.
   </p>
 
   <img src="meg1.jpg">
@@ -49,3 +1233,193 @@
 
 </body>
 </html>
+💾 Trykk nederst:
+👉 Commit changes
+
+🎯 Ferdig
+Ny side finnes ✔️
+
+Knappen din funker ✔️
+
+Ingenting i index er ødelagt ✔️
+
+Hvis du fortsatt ikke finner “Add file”, si hva du ser øverst på siden (eller send screenshot), så peker jeg på nøyaktig piksel 😄
+
+
+har gjort det nå men knappen åpner fortratt en 404 not found
+
+Nice, da er vi i “det funker nesten, men GitHub er litt drama”-fasen 😄
+
+En 404 betyr bare én ting: GitHub finner ikke fila du prøver å åpne.
+
+La oss fikse det super raskt:
+
+🔍 1) Sjekk FILNAVNET (viktigst)
+Gå tilbake til repoet ditt og se nøyaktig navn på fila.
+
+Den MÅ hete:
+
+ommeg.html
+Sjekk spesielt:
+
+❌ Ommeg.html (store bokstaver)
+
+❌ ommeg.htm
+
+❌ ommeg.html.html
+
+❌ ommeg (1).html
+
+👉 GitHub er super streng på dette.
+
+🔗 2) Sjekk knappen i index.html
+Denne må være EXAKT:
+
+<a href="ommeg.html" class="ommeg-knapp">
+Ikke:
+
+Ommeg.html
+
+./ommeg.html
+
+/ommeg.html
+
+Bare ren:
+
+ommeg.html
+📍 3) Sjekk at du er på riktig “sted” i repoet
+Fila ommeg.html må ligge på SAMME nivå som index.html.
+
+Altså:
+
+index.html
+ommeg.html
+❌ Ikke inni mappe
+❌ Ikke i subfolder
+
+⚡ 4) Hvis du bruker GitHub Pages
+Hvis siden din er hostet via Pages:
+
+👉 test linken direkte:
+
+dittdomene.no/ommeg.html
+Hvis den fortsatt 404’er → filnavn er feil eller ikke committed riktig.
+
+🧪 Kjapp diagnose
+Svar meg bare med én av disse:
+
+A) “filen heter ommeg.html”
+B) “jeg finner ikke filen i lista”
+C) “jeg er usikker”
+
+Så fikser jeg resten på 1 steg 😄
+
+
+Nå funker det vet sdu! kan vi gjøre siden lipp penere nå. legge til logoen min på toppen og lregge teksten inn i en slags liten firkantet bolbe med kanskje litt lys blå bakgrunn så det set stilrent og flott ut?
+
+YES 😄 nå er vi i “fra funker til faktisk lekker”-fasen 💅✨
+
+Kopier dette inn i ommeg.html (erstatt alt innholdet du har der nå):
+
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Om meg</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      color: #333;
+    }
+
+    .logo {
+      width: 250px;
+      margin-bottom: 1.5rem;
+    }
+
+    .boks {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #e6f3ff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      line-height: 1.6;
+    }
+
+    .bilder {
+      margin-top: 2rem;
+    }
+
+    .bilder img {
+      width: 180px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 10px 15px;
+      background: #6a5acd;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGO -->
+  <img src="princezza logo.jpeg" class="logo" alt="Logo">
+
+  <h1>Om meg</h1>
+
+  <!-- TEKST BOKS -->
+  <div class="boks">
+       Litt om meg: Jeg er ei jente født på 90 tallet. Jeg driver ikke en profesjonell salong, jeg driver hjemme i mitt eget hjem enn så lenge. Jeg har en drøm om å en dag åpne en salong!
+    Jeg er kronisk syk, så jeg har kun få klienter som jeg legger negler på og jeg kan lage press-on set på bestilling etter avtale.
+    Jeg er sertifisert for gel og polygel og er under kursing for akryl akkyrat å og trenger snart modeller for akrylnegler.
+    Ønsker du time hos meg eller å være modell (gratis) for akryl så ta gjerne kontakt med meg via facebook messenger som er linket på forsiden på hjemmesiden min.
+  </div>
+
+  <!-- BILDER -->
+  <div class="bilder">
+    <img src="meg1.jpg">
+    <img src="meg2.jpg">
+  </div>
+
+  <!-- TILBAKE -->
+  <a href="index.html">Tilbake</a>
+
+</body>
+</html>
+💅 Resultat du får:
+Logo øverst 🎀
+
+Tekst i lys blå “kort/boble” 📦
+
+Myke skygger (litt proff feel) ✨
+
+Bilder ryddig under 📸
+
+Ren “salong brand vibe”
+
+Hvis du vil neste steg kan vi:
+
+gjøre hele siden mer “luxury nail studio” look 💎
+
+animere boksen litt (fade in 😍)
+
+eller matche fargene med Instagram-stilen din
+
+Bare si 😄
+
+
+
