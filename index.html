@@ -1,9 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8" />
-  <title>Princezza_nails</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <title>Princezza Nails</title>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     body {
@@ -16,7 +19,34 @@
       text-align: center;
     }
 
-    /* Logo */
+    /* SPRÅKVELGER */
+    .language-switcher {
+      text-align: right;
+      margin-bottom: 0.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+    }
+
+    .language-switcher button {
+      border: none;
+      background: none;
+      padding: 4px 6px;
+      cursor: pointer;
+      font: inherit;
+      color: #999;
+      letter-spacing: 0.05em;
+    }
+
+    .language-switcher button.active {
+      color: #333;
+      font-weight: 600;
+    }
+
+    .language-switcher span {
+      color: #ddd;
+    }
+
+    /* LOGO */
     .logo {
       width: 100%;
       max-width: 600px;
@@ -24,7 +54,7 @@
       display: block;
     }
 
-    /* Om meg knapp container */
+    /* OM MEG */
     .ommeg-container {
       margin-bottom: 1.5rem;
     }
@@ -50,7 +80,7 @@
       background-color: #5941a9;
     }
 
-    /* Video-boks */
+    /* VIDEO */
     .video-boks {
       margin: 0 auto 2rem auto;
       max-width: 100%;
@@ -65,7 +95,7 @@
       border: none;
     }
 
-    /* Knapper */
+    /* SOSIALE MEDIER */
     .knapper {
       margin-top: 1.5rem;
       display: flex;
@@ -103,7 +133,14 @@
     }
 
     .instagram {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background: radial-gradient(
+        circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285AEB 90%
+      );
     }
 
     .instagram:hover {
@@ -137,7 +174,7 @@
       background-color: #006fdd;
     }
 
-    /* BUT 1ST NAILS ambassadør */
+    /* BUT 1ST NAILS */
     .but1st-ambassador {
       max-width: 650px;
       margin: 2.5rem auto 2.5rem auto;
@@ -151,24 +188,22 @@
       justify-content: center;
       gap: 28px;
       text-align: left;
+      text-decoration: none;
+      color: inherit;
       box-sizing: border-box;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .but1st-logo-link {
-      display: block;
-      flex: 0 0 145px;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-    }
-
-    .but1st-logo-link:hover {
-      transform: scale(1.03);
-      opacity: 0.9;
+    .but1st-ambassador:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 20px rgba(0,0,0,0.09);
     }
 
     .but1st-logo {
       display: block;
       width: 145px;
       height: auto;
+      flex-shrink: 0;
     }
 
     .but1st-tekst {
@@ -194,16 +229,17 @@
       margin-top: 5px;
       font-weight: 600;
       color: #333;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
     }
 
     .but1st-linktekst {
+      display: inline-block;
       margin-top: 6px;
       font-size: 0.78rem;
       color: #777;
     }
 
-    /* Bildegalleri */
+    /* BILDEGALLERI */
     .bildegalleri {
       display: flex;
       flex-wrap: wrap;
@@ -235,7 +271,7 @@
       cursor: pointer;
     }
 
-    /* Popup bilde container og styling */
+    /* POPUP */
     .popup-bilde-container {
       display: none;
       position: fixed;
@@ -261,7 +297,6 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
     }
 
-    /* Kryss-knapp */
     .popup-close-btn {
       position: absolute;
       top: 10px;
@@ -286,6 +321,15 @@
     }
 
     @media (max-width: 768px) {
+
+      body {
+        padding: 1rem;
+      }
+
+      .language-switcher {
+        text-align: center;
+      }
+
       .video-boks iframe {
         width: 100%;
         height: auto;
@@ -295,15 +339,10 @@
         width: 100px;
       }
 
-      /* BUT 1ST NAILS mobiltilpasning */
       .but1st-ambassador {
         margin: 2rem auto;
         padding: 20px;
         gap: 18px;
-      }
-
-      .but1st-logo-link {
-        flex: 0 0 110px;
       }
 
       .but1st-logo {
@@ -320,14 +359,11 @@
     }
 
     @media (max-width: 500px) {
+
       .but1st-ambassador {
         flex-direction: column;
         text-align: center;
         max-width: 340px;
-      }
-
-      .but1st-logo-link {
-        flex: none;
       }
 
       .but1st-logo {
@@ -339,16 +375,32 @@
 
 <body>
 
-  <img src="princezza logo.jpeg" alt="Logo" class="logo" />
+  <!-- SPRÅKVELGER -->
+  <div class="language-switcher">
+    <button id="noBtn" onclick="setLanguage('no')">NORSK</button>
+    <span>|</span>
+    <button id="enBtn" onclick="setLanguage('en')">ENGLISH</button>
+  </div>
 
-  <!-- Om meg knapp -->
+  <!-- HOVEDLOGO -->
+  <img
+    src="princezza logo.jpeg"
+    alt="Princezza Nails"
+    class="logo"
+  >
+
+  <!-- OM MEG -->
   <div class="ommeg-container">
-    <a href="ommeg.html" class="ommeg-knapp" target="_blank" rel="noopener noreferrer">
-      <i class="fas fa-user"></i> Om meg
+    <a href="ommeg.html" class="ommeg-knapp" id="aboutButton">
+      <i class="fas fa-user"></i>
+      <span
+        data-no="Om meg"
+        data-en="About me"
+      >Om meg</span>
     </a>
   </div>
 
-  <!-- Video -->
+  <!-- YOUTUBE -->
   <div class="video-boks">
     <iframe
       src="https://www.youtube.com/embed/videoseries?list=UUH7dKSkusr6GJQf5TciIyNw"
@@ -357,142 +409,263 @@
     </iframe>
   </div>
 
-  <!-- Sosiale medier -->
+  <!-- SOSIALE MEDIER -->
   <div class="knapper">
 
-    <a href="https://www.tiktok.com/@princezza_nails" target="_blank" class="knapp tiktok" rel="noopener noreferrer">
-      <i class="fab fa-tiktok"></i> TikTok
+    <a
+      href="https://www.tiktok.com/@princezza_nails"
+      target="_blank"
+      class="knapp tiktok"
+      rel="noopener noreferrer"
+    >
+      <i class="fab fa-tiktok"></i>
+      <span data-no="TikTok" data-en="TikTok">TikTok</span>
     </a>
 
-    <a href="https://www.instagram.com/princezza_nails/" target="_blank" class="knapp instagram" rel="noopener noreferrer">
-      <i class="fab fa-instagram"></i> Instagram
+    <a
+      href="https://www.instagram.com/princezza_nails/"
+      target="_blank"
+      class="knapp instagram"
+      rel="noopener noreferrer"
+    >
+      <i class="fab fa-instagram"></i>
+      <span data-no="Instagram" data-en="Instagram">Instagram</span>
     </a>
 
-    <a href="https://www.youtube.com/@Princezza_nails" target="_blank" class="knapp youtube" rel="noopener noreferrer">
-      <i class="fab fa-youtube"></i> YouTube
+    <a
+      href="https://www.youtube.com/@Princezza_nails"
+      target="_blank"
+      class="knapp youtube"
+      rel="noopener noreferrer"
+    >
+      <i class="fab fa-youtube"></i>
+      <span data-no="YouTube" data-en="YouTube">YouTube</span>
     </a>
 
-    <a href="https://www.facebook.com/princezzanails" target="_blank" class="knapp facebook" rel="noopener noreferrer">
-      <i class="fab fa-facebook"></i> Facebook
+    <a
+      href="https://www.facebook.com/princezzanails"
+      target="_blank"
+      class="knapp facebook"
+      rel="noopener noreferrer"
+    >
+      <i class="fab fa-facebook"></i>
+      <span data-no="Facebook" data-en="Facebook">Facebook</span>
     </a>
 
   </div>
 
-  <!-- Kontakt -->
+  <!-- KONTAKT -->
   <a
     href="https://m.me/princezzanails"
     target="_blank"
     class="knapp messenger"
-    style="margin-top: 2rem; display: inline-block;"
+    style="margin-top: 2rem; display: inline-flex;"
+    rel="noopener noreferrer"
   >
-    <i class="fab fa-facebook-messenger"></i> Kontakt meg
+    <i class="fab fa-facebook-messenger"></i>
+    <span
+      data-no="Kontakt meg"
+      data-en="Contact me"
+    >Kontakt meg</span>
   </a>
 
-  <!-- BUT 1ST NAILS ambassadør -->
-  <div class="but1st-ambassador">
+  <!-- BUT 1ST NAILS -->
+  <a
+    class="but1st-ambassador"
+    href="https://but1stnails.com/prin10"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
 
-    <a
-      class="but1st-logo-link"
-      href="https://but1stnails.com/prin10"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Besøk BUT 1ST NAILS"
+    <img
+      class="but1st-logo"
+      src="b1n logo.png"
+      alt="BUT 1ST NAILS"
     >
-      <img
-        class="but1st-logo"
-        src="https://raw.githubusercontent.com/princezzanails/princezzanails/main/b1n%20logo.png"
-        alt="BUT 1ST NAILS"
-      />
-    </a>
 
-    <p class="but1st-tekst">
-      <span class="but1st-overskrift">
-        Merkeambassadør for BUT 1ST NAILS
+    <div class="but1st-tekst">
+
+      <span
+        class="but1st-overskrift"
+        data-no="Stolt merkeambassadør for BUT 1ST NAILS"
+        data-en="Proud brand ambassador for BUT 1ST NAILS"
+      >
+        Stolt merkeambassadør for BUT 1ST NAILS
       </span>
 
-      Oppdag det kanadiske neglemerket jeg er stolt av å representere.
+      <span
+        data-no="Få 10 % rabatt med min lenke, med PRIN10 allerede lagt til."
+        data-en="Get 10% off through my link, with PRIN10 already applied."
+      >
+        Få 10 % rabatt med min lenke, med PRIN10 allerede lagt til.
+      </span>
 
       <br>
 
       <span class="but1st-rabatt">
-        10 % rabatt · PRIN10
+        <span
+          data-no="Du kan også bruke PRIN10 senere."
+          data-en="You can also use PRIN10 later."
+        >
+          Du kan også bruke PRIN10 senere.
+        </span>
       </span>
 
       <br>
 
-      <span class="but1st-linktekst">
-        Klikk på logoen for å besøke nettbutikken.
+      <span
+        class="but1st-linktekst"
+        data-no="Rabatten kan kombineres med nesten alle andre tilbud og rabattkoder · Klikk for å besøke nettbutikken →"
+        data-en="The discount can be combined with almost all other offers and discount codes · Click to visit the store →"
+      >
+        Rabatten kan kombineres med nesten alle andre tilbud og rabattkoder · Klikk for å besøke nettbutikken →
       </span>
-    </p>
 
-  </div>
+    </div>
 
-  <!-- Bildegalleri -->
+  </a>
+
+  <!-- BILDEGALLERI -->
   <div class="bildegalleri">
 
-    <img src="tons2.jpg" alt="Negldesign 1" />
-    <img src="tons1.jpg" alt="Negldesign 2" />
-    <img src="Sommernegler.jpeg" alt="Negldesign 3" />
-    <img src="examen2.jpeg" alt="Negldesign 4" />
-    <img src="examen stiletto.jpeg" alt="Negldesign 5" />
-    <img src="duckyeah.jpeg" alt="Negldesign 6" />
-    <img src="easter.jpeg" alt="Negldesign 7" />
+    <img src="tons2.jpg" alt="Negldesign">
+    <img src="tons1.jpg" alt="Negldesign">
+    <img src="Sommernegler.jpeg" alt="Sommernegler">
+    <img src="examen2.jpeg" alt="Negldesign">
+    <img src="examen stiletto.jpeg" alt="Stiletto negldesign">
+    <img src="duckyeah.jpeg" alt="Negldesign">
+    <img src="easter.jpeg" alt="Påskenegler">
 
-    <!-- Rettede filnavn -->
-    <img src="Kvikklunsj.jpg" alt="Kvikklunsj-negler" />
-    <img src="Mixedmedia klovn.jpg" alt="Mixed media klovn-negler" />
-    <img src="Havfrue.jpg" alt="Havfrue-negler" />
+    <!-- DE TRE NYE BILDENE -->
+    <img src="Kvikklunsj.jpg" alt="Kvikklunsj negler">
+    <img src="Mixedmedia klovn.jpg" alt="Mixed media klovn">
+    <img src="Havfrue.jpg" alt="Havfrue negler">
 
   </div>
 
-  <!-- Popup bilde container -->
-  <div class="popup-bilde-container" id="popupBildeContainer">
+  <!-- POPUP FOR BILDER -->
+  <div
+    class="popup-bilde-container"
+    id="popupBildeContainer"
+  >
 
     <button
       class="popup-close-btn"
       id="popupCloseBtn"
-      aria-label="Lukk bildet"
+      aria-label="Lukk bilde"
     >
       &times;
     </button>
 
     <img
       src=""
-      alt="Forstørret bilde"
+      alt=""
       class="popup-bilde"
       id="popupBilde"
-    />
+    >
 
   </div>
 
-  <script>
-    const popupBildeContainer = document.getElementById('popupBildeContainer');
-    const popupBilde = document.getElementById('popupBilde');
-    const popupCloseBtn = document.getElementById('popupCloseBtn');
 
-    document.querySelectorAll('.bildegalleri img').forEach(img => {
-      img.addEventListener('click', () => {
-        popupBilde.src = img.src;
-        popupBilde.alt = img.alt;
-        popupBildeContainer.classList.add('active');
+  <script>
+
+    /* =========================
+       SPRÅK
+       ========================= */
+
+    function setLanguage(language) {
+
+      document.documentElement.lang = language;
+
+      document.querySelectorAll('[data-no]').forEach(element => {
+
+        element.textContent =
+          element.getAttribute('data-' + language);
+
       });
-    });
+
+      document.getElementById('noBtn')
+        .classList.toggle('active', language === 'no');
+
+      document.getElementById('enBtn')
+        .classList.toggle('active', language === 'en');
+
+      localStorage.setItem(
+        'princezzaLanguage',
+        language
+      );
+
+      /* Sørger for at Om meg-siden åpnes på riktig språk */
+      document.getElementById('aboutButton').href =
+        'ommeg.html?lang=' + language;
+    }
+
+
+    /* Hent lagret språk */
+    const savedLanguage =
+      localStorage.getItem('princezzaLanguage') || 'no';
+
+    setLanguage(savedLanguage);
+
+
+    /* =========================
+       BILDE-POPUP
+       ========================= */
+
+    const popupBildeContainer =
+      document.getElementById('popupBildeContainer');
+
+    const popupBilde =
+      document.getElementById('popupBilde');
+
+    const popupCloseBtn =
+      document.getElementById('popupCloseBtn');
+
+
+    document
+      .querySelectorAll('.bildegalleri img')
+      .forEach(img => {
+
+        img.addEventListener('click', () => {
+
+          popupBilde.src = img.src;
+          popupBilde.alt = img.alt;
+
+          popupBildeContainer.classList.add('active');
+
+        });
+
+      });
+
 
     popupCloseBtn.addEventListener('click', () => {
+
       popupBildeContainer.classList.remove('active');
+
       popupBilde.src = '';
       popupBilde.alt = '';
+
     });
 
-    // Lukk også hvis klikker utenfor bildet
-    popupBildeContainer.addEventListener('click', (e) => {
-      if (e.target === popupBildeContainer) {
-        popupBildeContainer.classList.remove('active');
-        popupBilde.src = '';
-        popupBilde.alt = '';
+
+    popupBildeContainer.addEventListener(
+      'click',
+      (event) => {
+
+        if (event.target === popupBildeContainer) {
+
+          popupBildeContainer.classList.remove('active');
+
+          popupBilde.src = '';
+          popupBilde.alt = '';
+
+        }
+
       }
-    });
+    );
+
   </script>
 
 </body>
 </html>
+```
