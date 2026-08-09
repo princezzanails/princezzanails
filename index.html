@@ -23,6 +23,41 @@
       display: block;
     }
 
+    /* BUT 1ST NAILS ambassadør */
+    .but1st-ambassador {
+      width: 220px;
+      margin: 0 0 2rem 0;
+      text-align: left;
+    }
+
+    .but1st-logo-link {
+      display: block;
+      width: 150px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .but1st-logo-link:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+
+    .but1st-logo {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .but1st-tekst {
+      margin: 0.8rem 0 0 0;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: inherit;
+    }
+
+    .but1st-tekst strong {
+      font-weight: 700;
+    }
+
     /* NYTT: Om meg knapp container */
     .ommeg-container {
       margin-bottom: 1.5rem;
@@ -202,10 +237,43 @@
       .bildegalleri img {
         width: 100px;
       }
+
+      /* BUT 1ST NAILS mobiltilpasning */
+      .but1st-ambassador {
+        width: 200px;
+      }
+
+      .but1st-logo-link {
+        width: 135px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- BUT 1ST NAILS ambassadør -->
+  <div class="but1st-ambassador">
+    <a
+      class="but1st-logo-link"
+      href="https://but1stnails.com/prin10"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Besøk BUT 1ST NAILS med rabattkoden PRIN10"
+    >
+      <img
+        class="but1st-logo"
+        src="https://raw.githubusercontent.com/princezzanails/princezzanails/main/b1n%20logo.png"
+        alt="BUT 1ST NAILS"
+      />
+    </a>
+
+    <p class="but1st-tekst">
+      Jeg er merkeambassadør for det kanadiske neglemerket
+      <strong>BUT 1ST NAILS</strong>. Klikk på logoen for å besøke nettbutikken.
+      Bruk koden <strong>PRIN10</strong> for 10 % rabatt. Rabatten kan kombineres
+      med andre tilbud og rabattkoder.
+    </p>
+  </div>
 
   <img src="princezza logo.jpeg" alt="Logo" class="logo" />
 
