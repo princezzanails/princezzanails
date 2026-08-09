@@ -24,48 +24,6 @@
       display: block;
     }
 
-    /* BUT 1ST NAILS ambassadør */
-    .but1st-ambassador {
-      width: 190px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .but1st-logo-link {
-      display: block;
-      width: 145px;
-      margin: 0 auto;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-    }
-
-    .but1st-logo-link:hover {
-      transform: scale(1.03);
-      opacity: 0.9;
-    }
-
-    .but1st-logo {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .but1st-tekst {
-      margin: 0.7rem 0 0 0;
-      font-size: 0.78rem;
-      line-height: 1.45;
-      color: #555;
-    }
-
-    .but1st-tekst strong {
-      font-weight: 600;
-      color: #333;
-    }
-
-    .but1st-tekst .rabatt {
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
     /* Om meg knapp container */
     .ommeg-container {
       margin-bottom: 1.5rem;
@@ -92,19 +50,9 @@
       background-color: #5941a9;
     }
 
-    /* Video og ambassadør */
-    .video-område {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 45px;
-      margin: 0 auto 2rem auto;
-      max-width: 800px;
-    }
-
     /* Video-boks */
     .video-boks {
-      margin: 0;
+      margin: 0 auto 2rem auto;
       max-width: 100%;
       position: relative;
     }
@@ -187,6 +135,72 @@
 
     .messenger:hover {
       background-color: #006fdd;
+    }
+
+    /* BUT 1ST NAILS ambassadør */
+    .but1st-ambassador {
+      max-width: 650px;
+      margin: 2.5rem auto 2.5rem auto;
+      padding: 22px 28px;
+      border: 1px solid #dedede;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      text-align: left;
+      box-sizing: border-box;
+    }
+
+    .but1st-logo-link {
+      display: block;
+      flex: 0 0 145px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .but1st-logo-link:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+
+    .but1st-logo {
+      display: block;
+      width: 145px;
+      height: auto;
+    }
+
+    .but1st-tekst {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #555;
+      letter-spacing: 0.01em;
+    }
+
+    .but1st-overskrift {
+      display: block;
+      margin-bottom: 5px;
+      color: #222;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .but1st-rabatt {
+      display: inline-block;
+      margin-top: 5px;
+      font-weight: 600;
+      color: #333;
+      letter-spacing: 0.03em;
+    }
+
+    .but1st-linktekst {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      color: #777;
     }
 
     /* Bildegalleri */
@@ -272,11 +286,6 @@
     }
 
     @media (max-width: 768px) {
-      .video-område {
-        flex-direction: column;
-        gap: 25px;
-      }
-
       .video-boks iframe {
         width: 100%;
         height: auto;
@@ -286,12 +295,43 @@
         width: 100px;
       }
 
+      /* BUT 1ST NAILS mobiltilpasning */
       .but1st-ambassador {
-        width: 200px;
+        margin: 2rem auto;
+        padding: 20px;
+        gap: 18px;
       }
 
       .but1st-logo-link {
-        width: 135px;
+        flex: 0 0 110px;
+      }
+
+      .but1st-logo {
+        width: 110px;
+      }
+
+      .but1st-tekst {
+        font-size: 0.78rem;
+      }
+
+      .but1st-overskrift {
+        font-size: 0.82rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .but1st-ambassador {
+        flex-direction: column;
+        text-align: center;
+        max-width: 340px;
+      }
+
+      .but1st-logo-link {
+        flex: none;
+      }
+
+      .but1st-logo {
+        width: 125px;
       }
     }
   </style>
@@ -301,51 +341,25 @@
 
   <img src="princezza logo.jpeg" alt="Logo" class="logo" />
 
-  <!-- Om meg knapp under logoen -->
+  <!-- Om meg knapp -->
   <div class="ommeg-container">
     <a href="ommeg.html" class="ommeg-knapp" target="_blank" rel="noopener noreferrer">
       <i class="fas fa-user"></i> Om meg
     </a>
   </div>
 
-  <!-- Video + BUT 1ST NAILS -->
-  <div class="video-område">
-
-    <!-- BUT 1ST NAILS ambassadør -->
-    <div class="but1st-ambassador">
-      <a
-        class="but1st-logo-link"
-        href="https://but1stnails.com/prin10"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Besøk BUT 1ST NAILS"
-      >
-        <img
-          class="but1st-logo"
-          src="https://raw.githubusercontent.com/princezzanails/princezzanails/main/b1n%20logo.png"
-          alt="BUT 1ST NAILS"
-        />
-      </a>
-
-      <p class="but1st-tekst">
-        <strong>Merkeambassadør for BUT 1ST NAILS</strong><br>
-        <span class="rabatt">10 % rabatt med koden PRIN10</span><br>
-        Klikk på logoen for å besøke nettbutikken.
-      </p>
-    </div>
-
-    <div class="video-boks">
-      <!-- Video-spilleliste fra YouTube-kanalen -->
-      <iframe
-        src="https://www.youtube.com/embed/videoseries?list=UUH7dKSkusr6GJQf5TciIyNw"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-
+  <!-- Video -->
+  <div class="video-boks">
+    <iframe
+      src="https://www.youtube.com/embed/videoseries?list=UUH7dKSkusr6GJQf5TciIyNw"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
   </div>
 
+  <!-- Sosiale medier -->
   <div class="knapper">
+
     <a href="https://www.tiktok.com/@princezza_nails" target="_blank" class="knapp tiktok" rel="noopener noreferrer">
       <i class="fab fa-tiktok"></i> TikTok
     </a>
@@ -361,8 +375,10 @@
     <a href="https://www.facebook.com/princezzanails" target="_blank" class="knapp facebook" rel="noopener noreferrer">
       <i class="fab fa-facebook"></i> Facebook
     </a>
+
   </div>
 
+  <!-- Kontakt -->
   <a
     href="https://m.me/princezzanails"
     target="_blank"
@@ -372,7 +388,48 @@
     <i class="fab fa-facebook-messenger"></i> Kontakt meg
   </a>
 
+  <!-- BUT 1ST NAILS ambassadør -->
+  <div class="but1st-ambassador">
+
+    <a
+      class="but1st-logo-link"
+      href="https://but1stnails.com/prin10"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Besøk BUT 1ST NAILS"
+    >
+      <img
+        class="but1st-logo"
+        src="https://raw.githubusercontent.com/princezzanails/princezzanails/main/b1n%20logo.png"
+        alt="BUT 1ST NAILS"
+      />
+    </a>
+
+    <p class="but1st-tekst">
+      <span class="but1st-overskrift">
+        Merkeambassadør for BUT 1ST NAILS
+      </span>
+
+      Oppdag det kanadiske neglemerket jeg er stolt av å representere.
+
+      <br>
+
+      <span class="but1st-rabatt">
+        10 % rabatt · PRIN10
+      </span>
+
+      <br>
+
+      <span class="but1st-linktekst">
+        Klikk på logoen for å besøke nettbutikken.
+      </span>
+    </p>
+
+  </div>
+
+  <!-- Bildegalleri -->
   <div class="bildegalleri">
+
     <img src="tons2.jpg" alt="Negldesign 1" />
     <img src="tons1.jpg" alt="Negldesign 2" />
     <img src="Sommernegler.jpeg" alt="Negldesign 3" />
@@ -385,11 +442,19 @@
     <img src="Kvikklunsj.jpg" alt="Kvikklunsj-negler" />
     <img src="Mixedmedia klovn.jpg" alt="Mixed media klovn-negler" />
     <img src="Havfrue.jpg" alt="Havfrue-negler" />
+
   </div>
 
   <!-- Popup bilde container -->
   <div class="popup-bilde-container" id="popupBildeContainer">
-    <button class="popup-close-btn" id="popupCloseBtn" aria-label="Lukk bildet">&times;</button>
+
+    <button
+      class="popup-close-btn"
+      id="popupCloseBtn"
+      aria-label="Lukk bildet"
+    >
+      &times;
+    </button>
 
     <img
       src=""
@@ -397,6 +462,7 @@
       class="popup-bilde"
       id="popupBilde"
     />
+
   </div>
 
   <script>
