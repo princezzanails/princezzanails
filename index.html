@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Princezza_nails</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     body {
       font-family: sans-serif;
@@ -25,14 +26,15 @@
 
     /* BUT 1ST NAILS ambassadør */
     .but1st-ambassador {
-      width: 220px;
-      margin: 0 0 2rem 0;
-      text-align: left;
+      width: 190px;
+      text-align: center;
+      flex-shrink: 0;
     }
 
     .but1st-logo-link {
       display: block;
-      width: 150px;
+      width: 145px;
+      margin: 0 auto;
       transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
@@ -48,17 +50,23 @@
     }
 
     .but1st-tekst {
-      margin: 0.8rem 0 0 0;
-      font-size: 0.85rem;
-      line-height: 1.5;
-      color: inherit;
+      margin: 0.7rem 0 0 0;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: #555;
     }
 
     .but1st-tekst strong {
-      font-weight: 700;
+      font-weight: 600;
+      color: #333;
     }
 
-    /* NYTT: Om meg knapp container */
+    .but1st-tekst .rabatt {
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    /* Om meg knapp container */
     .ommeg-container {
       margin-bottom: 1.5rem;
     }
@@ -75,7 +83,7 @@
       cursor: pointer;
       text-decoration: none;
       color: white;
-      background-color: #6a5acd; /* en lilla farge, kan endres */
+      background-color: #6a5acd;
       box-shadow: 0 3px 6px rgba(0,0,0,0.2);
       transition: background-color 0.3s ease;
     }
@@ -84,9 +92,19 @@
       background-color: #5941a9;
     }
 
+    /* Video og ambassadør */
+    .video-område {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 45px;
+      margin: 0 auto 2rem auto;
+      max-width: 800px;
+    }
+
     /* Video-boks */
     .video-boks {
-      margin: 0 auto 2rem auto;
+      margin: 0;
       max-width: 100%;
       position: relative;
     }
@@ -128,19 +146,37 @@
       font-size: 1.3rem;
     }
 
-    .tiktok { background-color: #000; }
-    .tiktok:hover { background-color: #222; }
+    .tiktok {
+      background-color: #000;
+    }
+
+    .tiktok:hover {
+      background-color: #222;
+    }
 
     .instagram {
       background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     }
-    .instagram:hover { filter: brightness(1.1); }
 
-    .youtube { background-color: #FF0000; }
-    .youtube:hover { background-color: #cc0000; }
+    .instagram:hover {
+      filter: brightness(1.1);
+    }
 
-    .facebook { background-color: #1877F2; }
-    .facebook:hover { background-color: #145dbf; }
+    .youtube {
+      background-color: #FF0000;
+    }
+
+    .youtube:hover {
+      background-color: #cc0000;
+    }
+
+    .facebook {
+      background-color: #1877F2;
+    }
+
+    .facebook:hover {
+      background-color: #145dbf;
+    }
 
     .messenger {
       background-color: #0084FF;
@@ -148,6 +184,7 @@
       letter-spacing: 0.04em;
       font-size: 1.1rem;
     }
+
     .messenger:hover {
       background-color: #006fdd;
     }
@@ -168,8 +205,13 @@
       transition: transform 0.3s ease;
     }
 
-    .bildegalleri img:nth-child(even) { transform: rotate(2deg); }
-    .bildegalleri img:nth-child(odd) { transform: rotate(-2deg); }
+    .bildegalleri img:nth-child(even) {
+      transform: rotate(2deg);
+    }
+
+    .bildegalleri img:nth-child(odd) {
+      transform: rotate(-2deg);
+    }
 
     .bildegalleri img:hover,
     .bildegalleri img:active {
@@ -181,9 +223,10 @@
 
     /* Popup bilde container og styling */
     .popup-bilde-container {
-      display: none; /* skjult som standard */
+      display: none;
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
       background-color: rgba(0,0,0,0.8);
@@ -204,7 +247,7 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
     }
 
-    /* NYTT: Kryss-knapp */
+    /* Kryss-knapp */
     .popup-close-btn {
       position: absolute;
       top: 10px;
@@ -229,6 +272,11 @@
     }
 
     @media (max-width: 768px) {
+      .video-område {
+        flex-direction: column;
+        gap: 25px;
+      }
+
       .video-boks iframe {
         width: 100%;
         height: auto;
@@ -238,7 +286,6 @@
         width: 100px;
       }
 
-      /* BUT 1ST NAILS mobiltilpasning */
       .but1st-ambassador {
         width: 200px;
       }
@@ -249,66 +296,79 @@
     }
   </style>
 </head>
+
 <body>
-
-  <!-- BUT 1ST NAILS ambassadør -->
-  <div class="but1st-ambassador">
-    <a
-      class="but1st-logo-link"
-      href="https://but1stnails.com/prin10"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Besøk BUT 1ST NAILS med rabattkoden PRIN10"
-    >
-      <img
-        class="but1st-logo"
-        src="https://raw.githubusercontent.com/princezzanails/princezzanails/main/b1n%20logo.png"
-        alt="BUT 1ST NAILS"
-      />
-    </a>
-
-    <p class="but1st-tekst">
-      Jeg er merkeambassadør for det kanadiske neglemerket
-      <strong>BUT 1ST NAILS</strong>. Klikk på logoen for å besøke nettbutikken.
-      Bruk koden <strong>PRIN10</strong> for 10 % rabatt. Rabatten kan kombineres
-      med andre tilbud og rabattkoder.
-    </p>
-  </div>
 
   <img src="princezza logo.jpeg" alt="Logo" class="logo" />
 
-  <!-- NYTT: Om meg knapp under logoen -->
+  <!-- Om meg knapp under logoen -->
   <div class="ommeg-container">
     <a href="ommeg.html" class="ommeg-knapp" target="_blank" rel="noopener noreferrer">
       <i class="fas fa-user"></i> Om meg
     </a>
   </div>
 
-  <div class="video-boks">
-    <!-- Video-spilleliste fra YouTube-kanalen -->
-    <iframe
-      src="https://www.youtube.com/embed/videoseries?list=UUH7dKSkusr6GJQf5TciIyNw"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+  <!-- Video + BUT 1ST NAILS -->
+  <div class="video-område">
+
+    <!-- BUT 1ST NAILS ambassadør -->
+    <div class="but1st-ambassador">
+      <a
+        class="but1st-logo-link"
+        href="https://but1stnails.com/prin10"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Besøk BUT 1ST NAILS"
+      >
+        <img
+          class="but1st-logo"
+          src="https://raw.githubusercontent.com/princezzanails/princezzanails/main/b1n%20logo.png"
+          alt="BUT 1ST NAILS"
+        />
+      </a>
+
+      <p class="but1st-tekst">
+        <strong>Merkeambassadør for BUT 1ST NAILS</strong><br>
+        <span class="rabatt">10 % rabatt med koden PRIN10</span><br>
+        Klikk på logoen for å besøke nettbutikken.
+      </p>
+    </div>
+
+    <div class="video-boks">
+      <!-- Video-spilleliste fra YouTube-kanalen -->
+      <iframe
+        src="https://www.youtube.com/embed/videoseries?list=UUH7dKSkusr6GJQf5TciIyNw"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
   </div>
 
   <div class="knapper">
     <a href="https://www.tiktok.com/@princezza_nails" target="_blank" class="knapp tiktok" rel="noopener noreferrer">
       <i class="fab fa-tiktok"></i> TikTok
     </a>
+
     <a href="https://www.instagram.com/princezza_nails/" target="_blank" class="knapp instagram" rel="noopener noreferrer">
       <i class="fab fa-instagram"></i> Instagram
     </a>
+
     <a href="https://www.youtube.com/@Princezza_nails" target="_blank" class="knapp youtube" rel="noopener noreferrer">
       <i class="fab fa-youtube"></i> YouTube
     </a>
+
     <a href="https://www.facebook.com/princezzanails" target="_blank" class="knapp facebook" rel="noopener noreferrer">
       <i class="fab fa-facebook"></i> Facebook
     </a>
   </div>
 
-  <a href="https://m.me/princezzanails" target="_blank" class="knapp messenger" style="margin-top: 2rem; display: inline-block;">
+  <a
+    href="https://m.me/princezzanails"
+    target="_blank"
+    class="knapp messenger"
+    style="margin-top: 2rem; display: inline-block;"
+  >
     <i class="fab fa-facebook-messenger"></i> Kontakt meg
   </a>
 
@@ -320,15 +380,23 @@
     <img src="examen stiletto.jpeg" alt="Negldesign 5" />
     <img src="duckyeah.jpeg" alt="Negldesign 6" />
     <img src="easter.jpeg" alt="Negldesign 7" />
-    <img src="Kvikklunsj.jpg" alt="Negldesign 7" />
-    <img src="Mixedmedia klovn.jpg.jpg" alt="Negldesign 7" />
-    <img src="Havfrue.jpg.jpg.jpg" alt="Negldesign 7" />
+
+    <!-- Rettede filnavn -->
+    <img src="Kvikklunsj.jpg" alt="Kvikklunsj-negler" />
+    <img src="Mixedmedia klovn.jpg" alt="Mixed media klovn-negler" />
+    <img src="Havfrue.jpg" alt="Havfrue-negler" />
   </div>
 
   <!-- Popup bilde container -->
   <div class="popup-bilde-container" id="popupBildeContainer">
     <button class="popup-close-btn" id="popupCloseBtn" aria-label="Lukk bildet">&times;</button>
-    <img src="" alt="Forstørret bilde" class="popup-bilde" id="popupBilde" />
+
+    <img
+      src=""
+      alt="Forstørret bilde"
+      class="popup-bilde"
+      id="popupBilde"
+    />
   </div>
 
   <script>
@@ -352,7 +420,7 @@
 
     // Lukk også hvis klikker utenfor bildet
     popupBildeContainer.addEventListener('click', (e) => {
-      if(e.target === popupBildeContainer){
+      if (e.target === popupBildeContainer) {
         popupBildeContainer.classList.remove('active');
         popupBilde.src = '';
         popupBilde.alt = '';
