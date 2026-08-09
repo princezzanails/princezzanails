@@ -1,10 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
+
   <meta charset="UTF-8">
-  <title>Om meg</title>
+
+  <title id="pageTitle">Om meg</title>
 
   <style>
+
     body {
       font-family: sans-serif;
       text-align: center;
@@ -13,20 +18,77 @@
       color: #333;
     }
 
+    /* SPRÅKVELGER */
+
+    .language-switcher {
+      text-align: right;
+      max-width: 700px;
+      margin: 0 auto 0.5rem auto;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+    }
+
+    .language-switcher button {
+      border: none;
+      background: none;
+      padding: 4px 6px;
+      cursor: pointer;
+      font: inherit;
+      color: #999;
+      letter-spacing: 0.05em;
+    }
+
+    .language-switcher button.active {
+      color: #333;
+      font-weight: 600;
+    }
+
+    .language-switcher span {
+      color: #ddd;
+    }
+
+
+    /* LOGO */
+
     .logo {
       width: 250px;
       margin-bottom: 1.5rem;
     }
 
+
+    /* TEKSTBOKS */
+
     .boks {
-      max-width: 600px;
+      max-width: 650px;
       margin: 0 auto;
       background: #e6f3ff;
-      padding: 20px;
+      padding: 28px;
       border-radius: 12px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      line-height: 1.6;
+      line-height: 1.7;
+      text-align: left;
+      box-sizing: border-box;
     }
+
+    .boks h1 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 1.8rem;
+    }
+
+    .boks h2 {
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.25rem;
+      color: #333;
+    }
+
+    .boks p {
+      margin: 0 0 1rem 0;
+    }
+
+
+    /* BILDER */
 
     .bilder {
       margin-top: 2rem;
@@ -39,7 +101,10 @@
       box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     }
 
-    a {
+
+    /* TILBAKE */
+
+    .tilbake {
       display: inline-block;
       margin-top: 2rem;
       padding: 10px 15px;
@@ -48,64 +113,416 @@
       text-decoration: none;
       border-radius: 8px;
     }
+
+
+    /* MOBIL */
+
+    @media (max-width: 768px) {
+
+      body {
+        padding: 1rem;
+      }
+
+      .language-switcher {
+        text-align: center;
+      }
+
+      .boks {
+        padding: 22px;
+      }
+
+      .bilder img {
+        width: 140px;
+      }
+
+    }
+
   </style>
+
 </head>
+
 
 <body>
 
-  <!-- LOGO -->
-  <img src="princezza logo.jpeg" class="logo" alt="Logo">
 
-  <h1>Om meg</h1>
+  <!-- SPRÅKVELGER -->
 
-  <!-- TEKST BOKS -->
-  <div class="boks">
-    Litt om meg:# Litt om meg
+  <div class="language-switcher">
 
-Hei! Jeg heter Cisilie, og jeg er personen bak **Princezza Nails**.
+    <button
+      id="noBtn"
+      onclick="setLanguage('no')"
+    >
+      NORSK
+    </button>
 
-Jeg er ei jente født på 90-tallet, navnet **Princezza** kommer fra kallenavnet mitt, Cezza. Jeg har alltid vært typisk tomboy, og syntes derfor det var ganske morsomt å slenge på «prin» foran. Jeg var omtrent så langt fra en prinsesse man kunne komme, så det ble et lite ordspill. Etter hvert har jeg lært å omfavne den mer feminine og litt girly siden min også. Det har egentlig blitt en ganske morsom del av historien bak Princezza.
+    <span>|</span>
 
- Jeg har vært neglebiter så lenge jeg kan huske. Innimellom fikk jeg lagt negler profesjonelt, og det hjalp meg faktisk med å slutte å bite. Problemet var bare at jeg aldri sluttet å pille! 😅
-
-Så skjedde det litt tilfeldig at jeg begynte å legge negler på meg selv. Jeg fikk masse hjelp og veiledning fra en god venninne som har over 20 års erfaring fra neglebransjen, tok noen kurs og plutselig var jeg fullstendig hekta.
-
-Det som virkelig fanget meg, var **kunsten!**
-
-Jeg elsker å lage selve neglene, men det er særlig nail art, detaljer, teksturer, farger og alle de små tingene man kan bygge opp på en negl som fascinerer meg. For meg har negler blitt en liten kunstflate hvor det egentlig ikke finnes så mange grenser for hva man kan lage.
-
-At noen samtidig føler seg fine, feminine, tøffe, morsomme eller bare litt ekstra seg selv når de ser ned på hendene sine, er en fantastisk bonus.
-
-## En litt uventet ny retning
-
-Jeg er egentlig utdannet innen IT, og hadde aldri sett for meg at negler skulle bli en så stor del av livet mitt. På grunn av langvarige helseutfordringer har jeg dessverre måttet legge IT-karrieren på vent.
-
-Det var en tung overgang. Jobben min og det jeg kunne gjøre hadde vært en stor del av identiteten min, og plutselig måtte jeg finne ut hvem jeg var når jeg ikke lenger kunne leve på samme måte som før.
-
-Da ble Princezza Nails noe mye mer enn bare en hobby.
-
-Neglene, nail arten, fotograferingen, sosiale medier, konkurranser, læringen og alt jeg etter hvert har bygget rundt denne interessen har gitt meg noe å glede meg til og strekke meg etter på de dagene formen tillater det. Det har gitt meg en ny kreativ retning og, kanskje viktigst av alt, noe som føles som mitt.
-
-Jeg har fortsatt en stor drøm om å en dag kunne åpne min egen salong. Akkurat nå er ikke det mulig, men jeg håper at helsen en dag gir meg muligheten til å gjøre nettopp det.
-
-## Tar jeg kunder?
-
-Ja, innimellom.
-
-Jeg tar imot **et begrenset antall kunder når kapasiteten og formen tillater det**, og jeg kan også ta på meg enkelte oppdrag med håndlagde press-ons.
-
-Kapasiteten min varierer, så det er bare å ta kontakt og spørre. Noen ganger har jeg mulighet, andre ganger har jeg ikke det. Det viktigste for meg er å kunne gjøre dette på en måte som fungerer både for meg og for den jeg lager neglene til.
+    <button
+      id="enBtn"
+      onclick="setLanguage('en')"
+    >
+      ENGLISH
+    </button>
 
   </div>
+
+
+  <!-- LOGO -->
+
+  <img
+    src="princezza logo.jpeg"
+    class="logo"
+    alt="Princezza Nails"
+  >
+
+
+  <!-- TEKSTBOKS -->
+
+  <div class="boks">
+
+    <h1 id="heading">Om meg</h1>
+
+
+    <!-- =========================
+         NORSK
+         ========================= -->
+
+    <div id="norwegianText">
+
+      <p>
+        Hei! Jeg heter Cisilie, og jeg er personen bak
+        <strong>Princezza Nails</strong>.
+      </p>
+
+      <p>
+        Jeg er ei jente født på 90-tallet, navnet
+        <strong>Princezza</strong> kommer fra kallenavnet mitt, Cezza.
+        Jeg har alltid vært typisk tomboy, og syntes derfor det var ganske
+        morsomt å slenge på «prin» foran. Jeg var omtrent så langt fra en
+        prinsesse man kunne komme, så det ble et lite ordspill. Etter hvert
+        har jeg lært å omfavne den mer feminine og litt girly siden min også.
+        Det har egentlig blitt en ganske morsom del av historien bak Princezza.
+      </p>
+
+      <p>
+        Jeg har vært neglebiter så lenge jeg kan huske. Innimellom fikk jeg
+        lagt negler profesjonelt, og det hjalp meg faktisk med å slutte å bite.
+        Problemet var bare at jeg aldri sluttet å pille! 😅
+      </p>
+
+      <p>
+        Så skjedde det litt tilfeldig at jeg begynte å legge negler på meg selv.
+        Jeg fikk masse hjelp og veiledning fra en god venninne som har over 20 års
+        erfaring fra neglebransjen, tok noen kurs og plutselig var jeg fullstendig hekta.
+      </p>
+
+      <p>
+        Det som virkelig fanget meg, var <strong>kunsten!</strong>
+      </p>
+
+      <p>
+        Jeg elsker å lage selve neglene, men det er særlig nail art, detaljer,
+        teksturer, farger og alle de små tingene man kan bygge opp på en negl
+        som fascinerer meg. For meg har negler blitt en liten kunstflate hvor
+        det egentlig ikke finnes så mange grenser for hva man kan lage.
+      </p>
+
+      <p>
+        At noen samtidig føler seg fine, feminine, tøffe, morsomme eller bare
+        litt ekstra seg selv når de ser ned på hendene sine, er en fantastisk bonus.
+      </p>
+
+
+      <h2>En litt uventet ny retning</h2>
+
+      <p>
+        Jeg er egentlig utdannet innen IT, og hadde aldri sett for meg at negler
+        skulle bli en så stor del av livet mitt. På grunn av langvarige
+        helseutfordringer har jeg dessverre måttet legge IT-karrieren på vent.
+      </p>
+
+      <p>
+        Det var en tung overgang. Jobben min og det jeg kunne gjøre hadde vært
+        en stor del av identiteten min, og plutselig måtte jeg finne ut hvem jeg
+        var når jeg ikke lenger kunne leve på samme måte som før.
+      </p>
+
+      <p>
+        Da ble Princezza Nails noe mye mer enn bare en hobby.
+      </p>
+
+      <p>
+        Neglene, nail arten, fotograferingen, sosiale medier, konkurranser,
+        læringen og alt jeg etter hvert har bygget rundt denne interessen har
+        gitt meg noe å glede meg til og strekke meg etter på de dagene formen
+        tillater det. Det har gitt meg en ny kreativ retning og, kanskje
+        viktigst av alt, noe som føles som mitt.
+      </p>
+
+      <p>
+        Jeg har fortsatt en stor drøm om å en dag kunne åpne min egen salong.
+        Akkurat nå er ikke det mulig, men jeg håper at helsen en dag gir meg
+        muligheten til å gjøre nettopp det.
+      </p>
+
+
+      <h2>Tar jeg kunder?</h2>
+
+      <p>
+        Ja, innimellom.
+      </p>
+
+      <p>
+        Jeg tar imot <strong>et begrenset antall kunder når kapasiteten og
+        formen tillater det</strong>, og jeg kan også ta på meg enkelte oppdrag
+        med håndlagde press-ons.
+      </p>
+
+      <p>
+        Kapasiteten min varierer, så det er bare å ta kontakt og spørre.
+        Noen ganger har jeg mulighet, andre ganger har jeg ikke det. Det
+        viktigste for meg er å kunne gjøre dette på en måte som fungerer både
+        for meg og for den jeg lager neglene til.
+      </p>
+
+    </div>
+
+
+    <!-- =========================
+         ENGLISH
+         ========================= -->
+
+    <div
+      id="englishText"
+      style="display: none;"
+    >
+
+      <p>
+        Hi! My name is Cisilie, and I’m the person behind
+        <strong>Princezza Nails</strong>.
+      </p>
+
+      <p>
+        I’m a 90s girl, and the name <strong>Princezza</strong> comes from
+        my nickname, Cezza. I’ve always been a typical tomboy, so I thought
+        it was pretty funny to add “prin” in front of it. I was about as far
+        from being a princess as you could get, so it became a little
+        wordplay. Over time, I’ve also learned to embrace my more feminine
+        and slightly girly side. It has become quite a fun part of the story
+        behind Princezza.
+      </p>
+
+      <p>
+        I’ve been a nail biter for as long as I can remember. Every now and
+        then I would have my nails done professionally, and that actually
+        helped me stop biting them. The problem was, I never stopped picking!
+        😅
+      </p>
+
+      <p>
+        Then, somewhat by coincidence, I started doing my own nails. I got
+        lots of help and guidance from a good friend who has more than 20
+        years of experience in the nail industry, took some courses, and
+        suddenly I was completely hooked.
+      </p>
+
+      <p>
+        What really captured me was <strong>the art!</strong>
+      </p>
+
+      <p>
+        I love creating the nails themselves, but what fascinates me most is
+        nail art, details, textures, colours and all the little things you can
+        build onto a nail. To me, nails have become a tiny canvas where there
+        really aren’t many limits to what you can create.
+      </p>
+
+      <p>
+        Knowing that someone can feel beautiful, feminine, bold, playful,
+        or simply a little more like themselves when they look down at their
+        hands is a wonderful bonus.
+      </p>
+
+
+      <h2>An unexpected new direction</h2>
+
+      <p>
+        I’m actually trained in IT, and I never imagined that nails would
+        become such a big part of my life. Due to long-term health challenges,
+        I’ve unfortunately had to put my IT career on hold.
+      </p>
+
+      <p>
+        It was a difficult transition. My work and the things I was able to
+        do had been a big part of my identity, and suddenly I had to figure
+        out who I was when I could no longer live the same way as before.
+      </p>
+
+      <p>
+        That’s when Princezza Nails became so much more than just a hobby.
+      </p>
+
+      <p>
+        Nails, nail art, photography, social media, competitions, learning,
+        and everything I’ve gradually built around this interest have given
+        me something to look forward to and work towards on the days when
+        my health allows it. It has given me a new creative direction and,
+        perhaps most importantly, something that feels like mine.
+      </p>
+
+      <p>
+        I still have a big dream of one day opening my own salon. That isn’t
+        possible for me right now, but I hope that one day my health will give
+        me the opportunity to do exactly that.
+      </p>
+
+
+      <h2>Do I take clients?</h2>
+
+      <p>
+        Yes, from time to time.
+      </p>
+
+      <p>
+        I take on <strong>a limited number of clients when my capacity and
+        health allow it</strong>, and I can also take on selected custom
+        press-on nail orders.
+      </p>
+
+      <p>
+        My availability varies, so feel free to get in touch and ask.
+        Sometimes I’ll have availability, and sometimes I won’t. What matters
+        most to me is being able to do this in a way that works both for me
+        and for the person I’m creating the nails for.
+      </p>
+
+    </div>
+
+  </div>
+
 
   <!-- BILDER -->
+
   <div class="bilder">
-    <img src="meg1.jpg">
-    <img src="meg2.jpg">
+
+    <img
+      src="meg1.jpg"
+      alt="Cisilie"
+    >
+
+    <img
+      src="meg2.jpg"
+      alt="Cisilie"
+    >
+
   </div>
 
+
   <!-- TILBAKE -->
-  <a href="index.html">Tilbake</a>
+
+  <a
+    href="index.html"
+    class="tilbake"
+    id="backButton"
+  >
+    Tilbake
+  </a>
+
+
+  <script>
+
+    /* =========================
+       SPRÅK
+       ========================= */
+
+    function setLanguage(language) {
+
+      document.documentElement.lang = language;
+
+
+      /* Vis riktig tekst */
+
+      document.getElementById('norwegianText').style.display =
+        language === 'no' ? 'block' : 'none';
+
+      document.getElementById('englishText').style.display =
+        language === 'en' ? 'block' : 'none';
+
+
+      /* Marker valgt språk */
+
+      document.getElementById('noBtn')
+        .classList.toggle(
+          'active',
+          language === 'no'
+        );
+
+      document.getElementById('enBtn')
+        .classList.toggle(
+          'active',
+          language === 'en'
+        );
+
+
+      /* Oversett overskrift og knapp */
+
+      if (language === 'en') {
+
+        document.getElementById('pageTitle').textContent =
+          'About me';
+
+        document.getElementById('heading').textContent =
+          'About me';
+
+        document.getElementById('backButton').textContent =
+          'Back';
+
+      } else {
+
+        document.getElementById('pageTitle').textContent =
+          'Om meg';
+
+        document.getElementById('heading').textContent =
+          'Om meg';
+
+        document.getElementById('backButton').textContent =
+          'Tilbake';
+
+      }
+
+
+      /* Husk språk */
+
+      localStorage.setItem(
+        'princezzaLanguage',
+        language
+      );
+
+    }
+
+
+    /* =========================
+       FINN SPRÅK
+       ========================= */
+
+    const urlParams =
+      new URLSearchParams(window.location.search);
+
+    const languageFromLink =
+      urlParams.get('lang');
+
+    const savedLanguage =
+      languageFromLink ||
+      localStorage.getItem('princezzaLanguage') ||
+      'no';
+
+
+    setLanguage(savedLanguage);
+
+  </script>
 
 </body>
+
 </html>
+```
