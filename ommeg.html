@@ -8,6 +8,9 @@
 
   <title id="pageTitle">Om meg</title>
 
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
 
     body {
@@ -88,17 +91,32 @@
     }
 
 
-    /* BILDER */
+    /* KONTAKT MEG */
 
-    .bilder {
+    .kontakt-knapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       margin-top: 2rem;
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      background-color: #0084FF;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
     }
 
-    .bilder img {
-      width: 180px;
-      margin: 10px;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    .kontakt-knapp:hover {
+      background-color: #006fdd;
+    }
+
+    .kontakt-knapp i {
+      font-size: 1.25rem;
     }
 
 
@@ -106,7 +124,7 @@
 
     .tilbake {
       display: inline-block;
-      margin-top: 2rem;
+      margin-top: 1rem;
       padding: 10px 15px;
       background: #6a5acd;
       color: white;
@@ -129,10 +147,6 @@
 
       .boks {
         padding: 22px;
-      }
-
-      .bilder img {
-        width: 140px;
       }
 
     }
@@ -184,9 +198,7 @@
     <h1 id="heading">Om meg</h1>
 
 
-    <!-- =========================
-         NORSK
-         ========================= -->
+    <!-- NORSK -->
 
     <div id="norwegianText">
 
@@ -289,9 +301,7 @@
     </div>
 
 
-    <!-- =========================
-         ENGLISH
-         ========================= -->
+    <!-- ENGLISH -->
 
     <div
       id="englishText"
@@ -402,24 +412,27 @@
   </div>
 
 
-  <!-- BILDER -->
+  <!-- KONTAKT MEG -->
 
-  <div class="bilder">
+  <a
+    href="https://m.me/princezzanails"
+    target="_blank"
+    class="kontakt-knapp"
+    rel="noopener noreferrer"
+  >
 
-    <img
-      src="meg1.jpg"
-      alt="Cisilie"
-    >
+    <i class="fab fa-facebook-messenger"></i>
 
-    <img
-      src="meg2.jpg"
-      alt="Cisilie"
-    >
+    <span id="contactText">
+      Kontakt meg
+    </span>
 
-  </div>
+  </a>
 
 
   <!-- TILBAKE -->
+
+  <br>
 
   <a
     href="index.html"
@@ -431,10 +444,6 @@
 
 
   <script>
-
-    /* =========================
-       SPRÅK
-       ========================= */
 
     function setLanguage(language) {
 
@@ -465,7 +474,7 @@
         );
 
 
-      /* Oversett overskrift og knapp */
+      /* Oversett overskrift og knapper */
 
       if (language === 'en') {
 
@@ -474,6 +483,9 @@
 
         document.getElementById('heading').textContent =
           'About me';
+
+        document.getElementById('contactText').textContent =
+          'Contact me';
 
         document.getElementById('backButton').textContent =
           'Back';
@@ -485,6 +497,9 @@
 
         document.getElementById('heading').textContent =
           'Om meg';
+
+        document.getElementById('contactText').textContent =
+          'Kontakt meg';
 
         document.getElementById('backButton').textContent =
           'Tilbake';
@@ -502,9 +517,7 @@
     }
 
 
-    /* =========================
-       FINN SPRÅK
-       ========================= */
+    /* Finn valgt språk */
 
     const urlParams =
       new URLSearchParams(window.location.search);
