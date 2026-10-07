@@ -1,3 +1,71 @@
+
+
+Pasted text.txt
+Document
+Du har hjulpet meg å lage den i github. Her er hele koden 
+
+oh, en ting til,kun ha bildene med alle 5 neglene av de som har "under bilder" av hver enkelt negl i settet, og når man trykker på settet så får man opp alle bildene?
+
+Ja 😊 Da viser galleriet bare hovedbildet av hele settet. Når man trykker på det, åpnes en bildevisning med hovedbildet og alle detaljbildene, som man kan bla mellom.
+
+Bilder som ikke tilhører et slikt sett, vises enkeltvis som før. Det gjør galleriet mye ryddigere!
+
+Jeg bruker settbildene for Pokémon, Fortnite, Super Mario, Scooby-Doo, påske og Día de los Muertos som hovedbilder.
+
+
+Høres det ut so men god ide da? er det estetisk riktig? stilig? og efektivt? elelr blir det for mange klikk?
+
+Ja – jeg synes det er den beste løsningen for galleriet ditt 😊 Hovedbildene viser hele designet og gir en ryddig oversikt. Detaljbildene får besøkende utforske når et sett vekker interesse.
+
+Det blir heller ikke mange klikk hvis vi gjør det slik:
+
+Ett klikk på settet åpner bildevisningen.
+
+Man kan bla med piler eller sveipe på mobil mellom detaljbildene.
+
+En liten markering, for eksempel «6 bilder», viser at det finnes mer å se.
+
+Jeg ville beholdt hover-effekten, men dempet forstørrelsen litt når vi har seks bilder i bredden, så bildene ikke dekker naboene for mye. Da blir det både stilig og lett å bruke 💜
+
+
+nice! gi meg koden for alt dette, jeg har ikke endret noe siden førdte del hvor vi laget knappen
+
+Ferdig 😊 Denne filen inneholder alle endringene, så du kan gå direkte fra den første versjonen til denne.
+
+👉 
+
+Den har:
+
+Hovedbilder for settene, med «6 bilder» på.
+
+Detaljbilder som åpnes ved klikk, med piler, tastaturnavigasjon og sveiping på mobil.
+
+Avrundede kanter, skygge, lett skråstilling og en litt roligere hover-forstørrelse.
+
+Seks bilder i bredden på PC, tre på nettbrett og to på mobil.
+
+Alle 64 bildene og norsk/engelsk språkvalg.
+
+Slik legger du den inn:
+
+Åpne tekstfilen over og kopier alt innholdet.
+
+På GitHub åpner du galleri.html og trykker på blyanten.
+
+Klikk inne i kodefeltet → Ctrl+A → lim inn koden.
+
+Trykk Commit changes.
+
+Du erstatter hele koden fra linje 1. Knappen på forsiden fungerer videre, så index.html trenger ingen endringer 💜
+
+
+
+Library
+/
+galleri_kode.txt
+
+
+
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -17,286 +85,9 @@
     .nav-button:hover { background: #5941a9; }
     h1 { font-size: 2rem; margin: 0 0 .5rem; }
     .intro { font-size: 1rem; margin: 0 0 2rem; line-height: 1.5; }
-    .gallery { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1rem; }
-    .gallery-item { display: block; width: 100%; padding: 0; border: 0; border-radius: 8px; background: #f5f5f5; box-shadow: 0 0 10px rgba(0,0,0,.1); overflow: hidden; cursor: pointer; }
-    .gallery-item img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: contain; }
-    .gallery-item:hover { box-shadow: 0 0 0 3px #6a5acd; }
-    button:focus-visible, a:focus-visible { outline: 3px solid #6a5acd; outline-offset: 4px; }
-    .lightbox { border: none; padding: 0; background: transparent; width: 94vw; max-width: 1200px; max-height: 94dvh; color: #fff; overflow: visible; }
-    .lightbox::backdrop { background: rgba(0,0,0,.9); }
-    .lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-    .close-button { align-self: flex-end; border: 0; border-radius: 8px; padding: 10px 16px; background: #fff; color: #333; font: inherit; font-size: 1rem; cursor: pointer; }
-    .large-image { display: block; max-width: 100%; max-height: calc(90dvh - 90px); object-fit: contain; border-radius: 8px; }
-    @media (max-width: 768px) { body { padding: 1rem; } .gallery { grid-template-columns: repeat(3,minmax(0,1fr)); } .language-switcher { text-align: center; } }
-    @media (max-width: 500px) { .gallery { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; } }
-  </style>
-</head>
-<body>
-  <div class="language-switcher" role="group" aria-label="Språk / Language">
-    <button type="button" id="noBtn" onclick="setLanguage('no')">NORSK</button>
-    <span aria-hidden="true">|</span>
-    <button type="button" id="enBtn" onclick="setLanguage('en')">ENGLISH</button>
-  </div>
-  <a href="index.html" id="logoLink"><img src="princezza%20logo.jpeg" alt="Princezza Nails" class="logo"></a>
-  <nav class="navigation" aria-label="Navigasjon / Navigation">
-    <a href="index.html" id="homeLink" class="nav-button" data-no="Forside" data-en="Home">Forside</a>
-    <a href="ommeg.html" id="aboutLink" class="nav-button" data-no="Om meg" data-en="About me">Om meg</a>
-  </nav>
-  <main>
-    <h1 data-no="Galleri" data-en="Gallery">Galleri</h1>
-    <p class="intro" data-no="Trykk på et bilde for å se det større." data-en="Select a photo to view it larger.">Trykk på et bilde for å se det større.</p>
-    <div class="gallery">
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Pokémon – sett">
-        <img src="Pokemon%20set.jpg" alt="Pokémon – sett" data-alt-no="Pokémon – sett" data-alt-en="Pokémon – set" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Ash">
-        <img src="Ash.jpg" alt="Ash" data-alt-no="Ash" data-alt-en="Ash" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Pikachu">
-        <img src="Pikachu.jpg" alt="Pikachu" data-alt-no="Pikachu" data-alt-en="Pikachu" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Bulbasaur">
-        <img src="Bulbasaur.jpg" alt="Bulbasaur" data-alt-no="Bulbasaur" data-alt-en="Bulbasaur" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Charmander">
-        <img src="Charmander.jpg" alt="Charmander" data-alt-no="Charmander" data-alt-en="Charmander" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Squirtle">
-        <img src="Squirtle.jpg" alt="Squirtle" data-alt-no="Squirtle" data-alt-en="Squirtle" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Fortnite – sett">
-        <img src="Fortnite%20set.jpg" alt="Fortnite – sett" data-alt-no="Fortnite – sett" data-alt-en="Fortnite – set" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Peely">
-        <img src="Peely.jpg" alt="Peely" data-alt-no="Peely" data-alt-en="Peely" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Lama">
-        <img src="Lama.jpg" alt="Lama" data-alt-no="Lama" data-alt-en="Lama" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Drop">
-        <img src="Drop.jpg" alt="Drop" data-alt-no="Drop" data-alt-en="Drop" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Rift">
-        <img src="Rift.jpg" alt="Rift" data-alt-no="Rift" data-alt-en="Rift" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Slurp">
-        <img src="Slurp.jpg" alt="Slurp" data-alt-no="Slurp" data-alt-en="Slurp" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Super Mario – sett">
-        <img src="Supermario%20set.jpg" alt="Super Mario – sett" data-alt-no="Super Mario – sett" data-alt-en="Super Mario – set" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Super Mario – logo">
-        <img src="Logo.jpg" alt="Super Mario – logo" data-alt-no="Super Mario – logo" data-alt-en="Super Mario – logo" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Mario">
-        <img src="Mario.jpg" alt="Mario" data-alt-no="Mario" data-alt-en="Mario" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Peach">
-        <img src="Peach.jpg" alt="Peach" data-alt-no="Peach" data-alt-en="Peach" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Mushroom">
-        <img src="Mushroom.jpg" alt="Mushroom" data-alt-no="Mushroom" data-alt-en="Mushroom" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Plant">
-        <img src="Plant.jpg" alt="Plant" data-alt-no="Plant" data-alt-en="Plant" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Scooby-Doo – gjengen">
-        <img src="The%20scooby%20gang.jpg" alt="Scooby-Doo – gjengen" data-alt-no="Scooby-Doo – gjengen" data-alt-en="The Scooby gang" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Scoobydoo">
-        <img src="Scoobydoo.jpg" alt="Scoobydoo" data-alt-no="Scoobydoo" data-alt-en="Scoobydoo" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Fred">
-        <img src="Fred.jpg" alt="Fred" data-alt-no="Fred" data-alt-en="Fred" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Velma">
-        <img src="Welma.jpg" alt="Velma" data-alt-no="Velma" data-alt-en="Velma" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Shaggy">
-        <img src="Shaggy.jpg" alt="Shaggy" data-alt-no="Shaggy" data-alt-en="Shaggy" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Shaggy – detalj">
-        <img src="Shaggy%20nei.jpg" alt="Shaggy – detalj" data-alt-no="Shaggy – detalj" data-alt-en="Shaggy – detail" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Scooby1">
-        <img src="Scooby1.jpg" alt="Scooby1" data-alt-no="Scooby1" data-alt-en="Scooby1" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Día de los Muertos">
-        <img src="De%20de%20los%20muertos.jpg" alt="Día de los Muertos" data-alt-no="Día de los Muertos" data-alt-en="Día de los Muertos" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Día de los Muertos – detalj 1">
-        <img src="ddlm1.jpg" alt="Día de los Muertos – detalj 1" data-alt-no="Día de los Muertos – detalj 1" data-alt-en="Día de los Muertos – detail 1" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Día de los Muertos – detalj 2">
-        <img src="ddlm2.jpg" alt="Día de los Muertos – detalj 2" data-alt-no="Día de los Muertos – detalj 2" data-alt-en="Día de los Muertos – detail 2" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Día de los Muertos – detalj 3">
-        <img src="ddlm3.jpg" alt="Día de los Muertos – detalj 3" data-alt-no="Día de los Muertos – detalj 3" data-alt-en="Día de los Muertos – detail 3" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Día de los Muertos – detalj 4">
-        <img src="ddlm4.jpg" alt="Día de los Muertos – detalj 4" data-alt-no="Día de los Muertos – detalj 4" data-alt-en="Día de los Muertos – detail 4" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Día de los Muertos – detalj 5">
-        <img src="ddlm5.jpg" alt="Día de los Muertos – detalj 5" data-alt-no="Día de los Muertos – detalj 5" data-alt-en="Día de los Muertos – detail 5" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Påske – sett">
-        <img src="P%C3%A5ske%20set.jpg" alt="Påske – sett" data-alt-no="Påske – sett" data-alt-en="Easter – set" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Blomster">
-        <img src="Blomster.jpg" alt="Blomster" data-alt-no="Blomster" data-alt-en="Flowers" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Blomster – detalj">
-        <img src="Blomster2.jpg" alt="Blomster – detalj" data-alt-no="Blomster – detalj" data-alt-en="Flowers – detail" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Påskeegg">
-        <img src="Egg.jpg" alt="Påskeegg" data-alt-no="Påskeegg" data-alt-en="Easter egg" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Rose">
-        <img src="Rose.jpg" alt="Rose" data-alt-no="Rose" data-alt-en="Rose" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Sløyfe">
-        <img src="Sl%C3%B8yfe.jpg" alt="Sløyfe" data-alt-no="Sløyfe" data-alt-en="Bow" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Påskehare">
-        <img src="P%C3%A5skehare.jpg" alt="Påskehare" data-alt-no="Påskehare" data-alt-en="Easter bunny" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Påskekylling">
-        <img src="P%C3%A5skekylling.jpg" alt="Påskekylling" data-alt-no="Påskekylling" data-alt-en="Easter chick" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Påskenegler">
-        <img src="easter.jpeg" alt="Påskenegler" data-alt-no="Påskenegler" data-alt-en="Easter nails" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Karakterdesign">
-        <img src="All%20characters.jpg" alt="Karakterdesign" data-alt-no="Karakterdesign" data-alt-en="Character nail art" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Aloy">
-        <img src="Aloy.jpg" alt="Aloy" data-alt-no="Aloy" data-alt-en="Aloy" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Cruella Devil">
-        <img src="Cruella%20Devil.jpg" alt="Cruella Devil" data-alt-no="Cruella Devil" data-alt-en="Cruella Devil" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Ferb">
-        <img src="Ferb.jpg" alt="Ferb" data-alt-no="Ferb" data-alt-en="Ferb" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Labubu">
-        <img src="la%20bubu.jpg" alt="Labubu" data-alt-no="Labubu" data-alt-en="Labubu" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Kvikklunsj">
-        <img src="Kvikklunsj.jpg" alt="Kvikklunsj" data-alt-no="Kvikklunsj" data-alt-en="Kvikklunsj" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Solo kvikklunsj">
-        <img src="Solo%20kvikklunsj.jpg" alt="Solo kvikklunsj" data-alt-no="Solo kvikklunsj" data-alt-en="Solo kvikklunsj" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Duck">
-        <img src="Duck.jpg" alt="Duck" data-alt-no="Duck" data-alt-en="Duck" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Duck">
-        <img src="Duck.png" alt="Duck" data-alt-no="Duck" data-alt-en="Duck" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Andedesign">
-        <img src="duckyeah.jpeg" alt="Andedesign" data-alt-no="Andedesign" data-alt-en="Duck nail art" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Hello Kitty – jul">
-        <img src="Hello%20kitty%20christmas.jpg" alt="Hello Kitty – jul" data-alt-no="Hello Kitty – jul" data-alt-en="Hello Kitty – Christmas" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Nordlys og vinter">
-        <img src="Nordlys%20vinter.jpg" alt="Nordlys og vinter" data-alt-no="Nordlys og vinter" data-alt-en="Northern lights and winter" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Mikke og Minni">
-        <img src="Mikke%20og%20minni.jpg" alt="Mikke og Minni" data-alt-no="Mikke og Minni" data-alt-en="Mickey and Minnie" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Snoopy">
-        <img src="snoopy.png" alt="Snoopy" data-alt-no="Snoopy" data-alt-en="Snoopy" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Bie">
-        <img src="Bie.jpg" alt="Bie" data-alt-no="Bie" data-alt-en="Bee" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Mixed media – klovn">
-        <img src="Mixedmedia%20klovn.jpg" alt="Mixed media – klovn" data-alt-no="Mixed media – klovn" data-alt-en="Mixed media – clown" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Havfruenegler">
-        <img src="Havfrue.jpg" alt="Havfruenegler" data-alt-no="Havfruenegler" data-alt-en="Mermaid nails" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Sommernegler">
-        <img src="Sommernegler.jpeg" alt="Sommernegler" data-alt-no="Sommernegler" data-alt-en="Summer nails" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Eksamen – negledesign">
-        <img src="examen.jpeg" alt="Eksamen – negledesign" data-alt-no="Eksamen – negledesign" data-alt-en="Exam – nail design" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Eksamen – detalj">
-        <img src="examen2.jpeg" alt="Eksamen – detalj" data-alt-no="Eksamen – detalj" data-alt-en="Exam – detail" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Eksamen – stiletto">
-        <img src="examen%20stiletto.jpeg" alt="Eksamen – stiletto" data-alt-no="Eksamen – stiletto" data-alt-en="Exam – stiletto" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Negldesign 1">
-        <img src="tons.jpg" alt="Negldesign 1" data-alt-no="Negldesign 1" data-alt-en="Nail design 1" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Negldesign 2">
-        <img src="tons1.jpg" alt="Negldesign 2" data-alt-no="Negldesign 2" data-alt-en="Nail design 2" loading="lazy" decoding="async">
-      </button>
-      <button type="button" class="gallery-item" aria-label="Åpne bilde: Negldesign 3">
-        <img src="tons2.jpg" alt="Negldesign 3" data-alt-no="Negldesign 3" data-alt-en="Nail design 3" loading="lazy" decoding="async">
-      </button>
-    </div>
-  </main>
-  <dialog class="lightbox" id="lightbox" aria-label="Bildevisning" aria-modal="true">
-    <div class="lightbox-content">
-      <button type="button" class="close-button" id="closeButton" data-no="Lukk ×" data-en="Close ×">Lukk ×</button>
-      <img class="large-image" id="largeImage" alt="">
-    </div>
-  </dialog>
-  <script>
-    const lightbox = document.getElementById('lightbox');
-    const largeImage = document.getElementById('largeImage');
-    let activeImage = null;
-    let currentLanguage = 'no';
-    function setLanguage(language) {
-      currentLanguage = language === 'en' ? 'en' : 'no';
-      document.documentElement.lang = currentLanguage;
-      document.title = (currentLanguage === 'en' ? 'Gallery' : 'Galleri') + ' | Princezza Nails';
-      document.querySelectorAll('[data-no]').forEach(element => {
-        element.textContent = element.getAttribute('data-' + currentLanguage);
-      });
-      document.querySelectorAll('.gallery-item img').forEach(img => {
-        img.alt = img.getAttribute('data-alt-' + currentLanguage);
-        img.parentElement.setAttribute('aria-label', (currentLanguage === 'en' ? 'Open photo: ' : 'Åpne bilde: ') + img.alt);
-      });
-      ['no', 'en'].forEach(lang => {
-        const button = document.getElementById(lang + 'Btn');
-        button.classList.toggle('active', lang === currentLanguage);
-        button.setAttribute('aria-pressed', String(lang === currentLanguage));
-      });
-      document.getElementById('homeLink').href = 'index.html?lang=' + currentLanguage;
-      document.getElementById('logoLink').href = 'index.html?lang=' + currentLanguage;
-      document.getElementById('aboutLink').href = 'ommeg.html?lang=' + currentLanguage;
-      lightbox.setAttribute('aria-label', currentLanguage === 'en' ? 'Photo viewer' : 'Bildevisning');
-      if (activeImage) largeImage.alt = activeImage.alt;
-      try { localStorage.setItem('princezzaLanguage', currentLanguage); } catch (error) {}
-    }
-    let savedLanguage = 'no';
-    try { savedLanguage = localStorage.getItem('princezzaLanguage') || 'no'; } catch (error) {}
-    const requestedLanguage = new URLSearchParams(location.search).get('lang');
-    setLanguage(['no', 'en'].includes(requestedLanguage) ? requestedLanguage : savedLanguage);
-    document.querySelectorAll('.gallery-item').forEach(button => {
-      button.addEventListener('click', () => {
-        activeImage = button.querySelector('img');
-        largeImage.src = activeImage.src;
-        largeImage.alt = activeImage.alt;
-        lightbox.showModal();
-        document.body.style.overflow = 'hidden';
-      });
-    });
-    document.getElementById('closeButton').addEventListener('click', () => lightbox.close());
-    lightbox.addEventListener('click', event => {
-      if (event.target === lightbox) lightbox.close();
-    });
-    lightbox.addEventListener('close', () => {
-      document.body.style.overflow = '';
-      largeImage.removeAttribute('src');
-      largeImage.alt = '';
-      activeImage = null;
-    });
-  </script>
-</body>
-</html>
+    .gallery { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.5rem 1rem; align-items: start; margin-top: 2rem; }
+    .gallery-item { position: relative; display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: pointer; border-radius: 8px; }
+    .photo-frame { display: block; position: relative; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,.1); transition: transform .3s ease; }
+    .gallery-item img { display: block; width: 100%; height: auto; border-radius: 8px; }
+
+    
