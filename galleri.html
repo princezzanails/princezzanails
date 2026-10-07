@@ -1,71 +1,3 @@
-
-
-Pasted text.txt
-Document
-Du har hjulpet meg å lage den i github. Her er hele koden 
-
-oh, en ting til,kun ha bildene med alle 5 neglene av de som har "under bilder" av hver enkelt negl i settet, og når man trykker på settet så får man opp alle bildene?
-
-Ja 😊 Da viser galleriet bare hovedbildet av hele settet. Når man trykker på det, åpnes en bildevisning med hovedbildet og alle detaljbildene, som man kan bla mellom.
-
-Bilder som ikke tilhører et slikt sett, vises enkeltvis som før. Det gjør galleriet mye ryddigere!
-
-Jeg bruker settbildene for Pokémon, Fortnite, Super Mario, Scooby-Doo, påske og Día de los Muertos som hovedbilder.
-
-
-Høres det ut so men god ide da? er det estetisk riktig? stilig? og efektivt? elelr blir det for mange klikk?
-
-Ja – jeg synes det er den beste løsningen for galleriet ditt 😊 Hovedbildene viser hele designet og gir en ryddig oversikt. Detaljbildene får besøkende utforske når et sett vekker interesse.
-
-Det blir heller ikke mange klikk hvis vi gjør det slik:
-
-Ett klikk på settet åpner bildevisningen.
-
-Man kan bla med piler eller sveipe på mobil mellom detaljbildene.
-
-En liten markering, for eksempel «6 bilder», viser at det finnes mer å se.
-
-Jeg ville beholdt hover-effekten, men dempet forstørrelsen litt når vi har seks bilder i bredden, så bildene ikke dekker naboene for mye. Da blir det både stilig og lett å bruke 💜
-
-
-nice! gi meg koden for alt dette, jeg har ikke endret noe siden førdte del hvor vi laget knappen
-
-Ferdig 😊 Denne filen inneholder alle endringene, så du kan gå direkte fra den første versjonen til denne.
-
-👉 
-
-Den har:
-
-Hovedbilder for settene, med «6 bilder» på.
-
-Detaljbilder som åpnes ved klikk, med piler, tastaturnavigasjon og sveiping på mobil.
-
-Avrundede kanter, skygge, lett skråstilling og en litt roligere hover-forstørrelse.
-
-Seks bilder i bredden på PC, tre på nettbrett og to på mobil.
-
-Alle 64 bildene og norsk/engelsk språkvalg.
-
-Slik legger du den inn:
-
-Åpne tekstfilen over og kopier alt innholdet.
-
-På GitHub åpner du galleri.html og trykker på blyanten.
-
-Klikk inne i kodefeltet → Ctrl+A → lim inn koden.
-
-Trykk Commit changes.
-
-Du erstatter hele koden fra linje 1. Knappen på forsiden fungerer videre, så index.html trenger ingen endringer 💜
-
-
-
-Library
-/
-galleri_kode.txt
-
-
-
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -89,3 +21,787 @@ galleri_kode.txt
     .gallery-item { position: relative; display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: pointer; border-radius: 8px; }
     .photo-frame { display: block; position: relative; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,.1); transition: transform .3s ease; }
     .gallery-item img { display: block; width: 100%; height: auto; border-radius: 8px; }
+    .gallery-item:nth-child(even) .photo-frame { transform: rotate(2deg); }
+    .gallery-item:nth-child(odd) .photo-frame { transform: rotate(-2deg); }
+    .gallery-item:hover, .gallery-item:focus-visible { z-index: 10; }
+    .gallery-item:hover .photo-frame, .gallery-item:focus-visible .photo-frame { transform: scale(1.15) rotate(0deg); }
+    .photo-count { position: absolute; bottom: 6px; right: 6px; background: rgba(0,0,0,.78); color: #fff; border-radius: 5px; padding: 4px 6px; font-size: .875rem; line-height: 1.25; }
+    .viewer-controls { display: flex; justify-content: center; align-items: center; gap: 14px; min-height: 44px; }
+    .viewer-arrow { width: 44px; height: 44px; border: none; border-radius: 50%; color: #333; background: #fff; font-size: 1.5rem; cursor: pointer; }
+    .viewer-arrow:disabled { opacity: .35; cursor: default; }
+    .viewer-arrow[hidden] { display: none; }
+    .viewer-counter { margin: 0; font-size: 1rem; min-width: 60px; }
+    .viewer-stage { display: flex; justify-content: center; align-items: center; width: 100%; touch-action: pan-y pinch-zoom; }
+    @media (hover: none) { .gallery-item:hover .photo-frame { transform: rotate(0deg); } }
+    @media (prefers-reduced-motion: reduce) { .photo-frame { transition: none; } }
+    button:focus-visible, a:focus-visible { outline: 3px solid #6a5acd; outline-offset: 4px; }
+    .lightbox { border: none; padding: 0; background: transparent; width: 94vw; max-width: 1200px; max-height: 94dvh; color: #fff; overflow: visible; }
+    .lightbox::backdrop { background: rgba(0,0,0,.9); }
+    .lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .close-button { align-self: flex-end; border: 0; border-radius: 8px; padding: 10px 16px; background: #fff; color: #333; font: inherit; font-size: 1rem; cursor: pointer; }
+    .large-image { display: block; max-width: 100%; max-height: calc(90dvh - 150px); object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding: 1rem; } .gallery { grid-template-columns: repeat(3,minmax(0,1fr)); } .language-switcher { text-align: center; } }
+    @media (max-width: 500px) { .gallery { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; } }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Språk / Language">
+    <button type="button" id="noBtn" onclick="setLanguage('no')">NORSK</button>
+    <span aria-hidden="true">|</span>
+    <button type="button" id="enBtn" onclick="setLanguage('en')">ENGLISH</button>
+  </div>
+  <a href="index.html" id="logoLink"><img src="princezza%20logo.jpeg" alt="Princezza Nails" class="logo"></a>
+  <nav class="navigation" aria-label="Navigasjon / Navigation">
+    <a href="index.html" id="homeLink" class="nav-button" data-no="Forside" data-en="Home">Forside</a>
+    <a href="ommeg.html" id="aboutLink" class="nav-button" data-no="Om meg" data-en="About me">Om meg</a>
+  </nav>
+  <main>
+    <h1 data-no="Galleri" data-en="Gallery">Galleri</h1>
+    <p class="intro" data-no="Trykk på et sett for å se flere bilder, eller på et enkeltbilde for å se det større." data-en="Select a set to explore its photos, or a single photo to view it larger.">Trykk på et sett for å se flere bilder, eller på et enkeltbilde for å se det større.</p>
+    <div class="gallery">
+      <button type="button" class="gallery-item" data-entry="0" aria-label="Åpne bilde: Pokémon – sett">
+        <span class="photo-frame">
+          <img src="Pokemon%20set.jpg" alt="Pokémon – sett" loading="lazy" decoding="async">
+          <span class="photo-count" data-count="6">6 bilder</span>
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="1" aria-label="Åpne bilde: Fortnite – sett">
+        <span class="photo-frame">
+          <img src="Fortnite%20set.jpg" alt="Fortnite – sett" loading="lazy" decoding="async">
+          <span class="photo-count" data-count="6">6 bilder</span>
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="2" aria-label="Åpne bilde: Super Mario – sett">
+        <span class="photo-frame">
+          <img src="Supermario%20set.jpg" alt="Super Mario – sett" loading="lazy" decoding="async">
+          <span class="photo-count" data-count="6">6 bilder</span>
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="3" aria-label="Åpne bilde: Scooby-Doo – gjengen">
+        <span class="photo-frame">
+          <img src="The%20scooby%20gang.jpg" alt="Scooby-Doo – gjengen" loading="lazy" decoding="async">
+          <span class="photo-count" data-count="6">6 bilder</span>
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="4" aria-label="Åpne bilde: Día de los Muertos">
+        <span class="photo-frame">
+          <img src="De%20de%20los%20muertos.jpg" alt="Día de los Muertos" loading="lazy" decoding="async">
+          <span class="photo-count" data-count="6">6 bilder</span>
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="5" aria-label="Åpne bilde: Påske – sett">
+        <span class="photo-frame">
+          <img src="P%C3%A5ske%20set.jpg" alt="Påske – sett" loading="lazy" decoding="async">
+          <span class="photo-count" data-count="6">6 bilder</span>
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="6" aria-label="Åpne bilde: Karakterdesign">
+        <span class="photo-frame">
+          <img src="All%20characters.jpg" alt="Karakterdesign" loading="lazy" decoding="async">
+          <span class="photo-count" data-count="6">6 bilder</span>
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="7" aria-label="Åpne bilde: Påskehare">
+        <span class="photo-frame">
+          <img src="P%C3%A5skehare.jpg" alt="Påskehare" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="8" aria-label="Åpne bilde: Påskekylling">
+        <span class="photo-frame">
+          <img src="P%C3%A5skekylling.jpg" alt="Påskekylling" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="9" aria-label="Åpne bilde: Påskenegler">
+        <span class="photo-frame">
+          <img src="easter.jpeg" alt="Påskenegler" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="10" aria-label="Åpne bilde: Kvikklunsj">
+        <span class="photo-frame">
+          <img src="Kvikklunsj.jpg" alt="Kvikklunsj" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="11" aria-label="Åpne bilde: Solo kvikklunsj">
+        <span class="photo-frame">
+          <img src="Solo%20kvikklunsj.jpg" alt="Solo kvikklunsj" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="12" aria-label="Åpne bilde: Duck">
+        <span class="photo-frame">
+          <img src="Duck.jpg" alt="Duck" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="13" aria-label="Åpne bilde: Duck">
+        <span class="photo-frame">
+          <img src="Duck.png" alt="Duck" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="14" aria-label="Åpne bilde: Andedesign">
+        <span class="photo-frame">
+          <img src="duckyeah.jpeg" alt="Andedesign" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="15" aria-label="Åpne bilde: Hello Kitty – jul">
+        <span class="photo-frame">
+          <img src="Hello%20kitty%20christmas.jpg" alt="Hello Kitty – jul" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="16" aria-label="Åpne bilde: Nordlys og vinter">
+        <span class="photo-frame">
+          <img src="Nordlys%20vinter.jpg" alt="Nordlys og vinter" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="17" aria-label="Åpne bilde: Mikke og Minni">
+        <span class="photo-frame">
+          <img src="Mikke%20og%20minni.jpg" alt="Mikke og Minni" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="18" aria-label="Åpne bilde: Snoopy">
+        <span class="photo-frame">
+          <img src="snoopy.png" alt="Snoopy" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="19" aria-label="Åpne bilde: Bie">
+        <span class="photo-frame">
+          <img src="Bie.jpg" alt="Bie" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="20" aria-label="Åpne bilde: Mixed media – klovn">
+        <span class="photo-frame">
+          <img src="Mixedmedia%20klovn.jpg" alt="Mixed media – klovn" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="21" aria-label="Åpne bilde: Havfruenegler">
+        <span class="photo-frame">
+          <img src="Havfrue.jpg" alt="Havfruenegler" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="22" aria-label="Åpne bilde: Sommernegler">
+        <span class="photo-frame">
+          <img src="Sommernegler.jpeg" alt="Sommernegler" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="23" aria-label="Åpne bilde: Eksamen – negledesign">
+        <span class="photo-frame">
+          <img src="examen.jpeg" alt="Eksamen – negledesign" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="24" aria-label="Åpne bilde: Eksamen – detalj">
+        <span class="photo-frame">
+          <img src="examen2.jpeg" alt="Eksamen – detalj" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="25" aria-label="Åpne bilde: Eksamen – stiletto">
+        <span class="photo-frame">
+          <img src="examen%20stiletto.jpeg" alt="Eksamen – stiletto" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="26" aria-label="Åpne bilde: Negldesign 1">
+        <span class="photo-frame">
+          <img src="tons.jpg" alt="Negldesign 1" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="27" aria-label="Åpne bilde: Negldesign 2">
+        <span class="photo-frame">
+          <img src="tons1.jpg" alt="Negldesign 2" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+      <button type="button" class="gallery-item" data-entry="28" aria-label="Åpne bilde: Negldesign 3">
+        <span class="photo-frame">
+          <img src="tons2.jpg" alt="Negldesign 3" loading="lazy" decoding="async">
+          
+        </span>
+      </button>
+    </div>
+  </main>
+  <dialog class="lightbox" id="lightbox" aria-label="Bildevisning" aria-modal="true">
+    <div class="lightbox-content">
+      <button type="button" class="close-button" id="closeButton" data-no="Lukk ×" data-en="Close ×">Lukk ×</button>
+      <div class="viewer-stage" id="viewerStage">
+        <img class="large-image" id="largeImage" alt="">
+      </div>
+      <div class="viewer-controls">
+        <button type="button" class="viewer-arrow" id="previousButton" aria-label="Forrige bilde">&#10094;</button>
+        <p class="viewer-counter" id="viewerCounter" role="status" aria-live="polite"></p>
+        <button type="button" class="viewer-arrow" id="nextButton" aria-label="Neste bilde">&#10095;</button>
+      </div>
+    </div>
+  </dialog>
+  <script>
+    // Hvert sett har hovedbildet først, etterfulgt av detaljbildene.
+    const galleryEntries = [
+  {
+    "photos": [
+      {
+        "src": "Pokemon%20set.jpg",
+        "no": "Pokémon – sett",
+        "en": "Pokémon – set"
+      },
+      {
+        "src": "Ash.jpg",
+        "no": "Ash",
+        "en": "Ash"
+      },
+      {
+        "src": "Pikachu.jpg",
+        "no": "Pikachu",
+        "en": "Pikachu"
+      },
+      {
+        "src": "Bulbasaur.jpg",
+        "no": "Bulbasaur",
+        "en": "Bulbasaur"
+      },
+      {
+        "src": "Charmander.jpg",
+        "no": "Charmander",
+        "en": "Charmander"
+      },
+      {
+        "src": "Squirtle.jpg",
+        "no": "Squirtle",
+        "en": "Squirtle"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Fortnite%20set.jpg",
+        "no": "Fortnite – sett",
+        "en": "Fortnite – set"
+      },
+      {
+        "src": "Peely.jpg",
+        "no": "Peely",
+        "en": "Peely"
+      },
+      {
+        "src": "Lama.jpg",
+        "no": "Lama",
+        "en": "Lama"
+      },
+      {
+        "src": "Drop.jpg",
+        "no": "Drop",
+        "en": "Drop"
+      },
+      {
+        "src": "Rift.jpg",
+        "no": "Rift",
+        "en": "Rift"
+      },
+      {
+        "src": "Slurp.jpg",
+        "no": "Slurp",
+        "en": "Slurp"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Supermario%20set.jpg",
+        "no": "Super Mario – sett",
+        "en": "Super Mario – set"
+      },
+      {
+        "src": "Logo.jpg",
+        "no": "Super Mario – logo",
+        "en": "Super Mario – logo"
+      },
+      {
+        "src": "Mario.jpg",
+        "no": "Mario",
+        "en": "Mario"
+      },
+      {
+        "src": "Peach.jpg",
+        "no": "Peach",
+        "en": "Peach"
+      },
+      {
+        "src": "Mushroom.jpg",
+        "no": "Mushroom",
+        "en": "Mushroom"
+      },
+      {
+        "src": "Plant.jpg",
+        "no": "Plant",
+        "en": "Plant"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "The%20scooby%20gang.jpg",
+        "no": "Scooby-Doo – gjengen",
+        "en": "The Scooby gang"
+      },
+      {
+        "src": "Scoobydoo.jpg",
+        "no": "Scoobydoo",
+        "en": "Scoobydoo"
+      },
+      {
+        "src": "Fred.jpg",
+        "no": "Fred",
+        "en": "Fred"
+      },
+      {
+        "src": "Welma.jpg",
+        "no": "Velma",
+        "en": "Velma"
+      },
+      {
+        "src": "Shaggy.jpg",
+        "no": "Shaggy",
+        "en": "Shaggy"
+      },
+      {
+        "src": "Shaggy%20nei.jpg",
+        "no": "Shaggy – detalj",
+        "en": "Shaggy – detail"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "De%20de%20los%20muertos.jpg",
+        "no": "Día de los Muertos",
+        "en": "Día de los Muertos"
+      },
+      {
+        "src": "ddlm1.jpg",
+        "no": "Día de los Muertos – detalj 1",
+        "en": "Día de los Muertos – detail 1"
+      },
+      {
+        "src": "ddlm2.jpg",
+        "no": "Día de los Muertos – detalj 2",
+        "en": "Día de los Muertos – detail 2"
+      },
+      {
+        "src": "ddlm3.jpg",
+        "no": "Día de los Muertos – detalj 3",
+        "en": "Día de los Muertos – detail 3"
+      },
+      {
+        "src": "ddlm4.jpg",
+        "no": "Día de los Muertos – detalj 4",
+        "en": "Día de los Muertos – detail 4"
+      },
+      {
+        "src": "ddlm5.jpg",
+        "no": "Día de los Muertos – detalj 5",
+        "en": "Día de los Muertos – detail 5"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "P%C3%A5ske%20set.jpg",
+        "no": "Påske – sett",
+        "en": "Easter – set"
+      },
+      {
+        "src": "Blomster.jpg",
+        "no": "Blomster",
+        "en": "Flowers"
+      },
+      {
+        "src": "Blomster2.jpg",
+        "no": "Blomster – detalj",
+        "en": "Flowers – detail"
+      },
+      {
+        "src": "Egg.jpg",
+        "no": "Påskeegg",
+        "en": "Easter egg"
+      },
+      {
+        "src": "Rose.jpg",
+        "no": "Rose",
+        "en": "Rose"
+      },
+      {
+        "src": "Sl%C3%B8yfe.jpg",
+        "no": "Sløyfe",
+        "en": "Bow"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "All%20characters.jpg",
+        "no": "Karakterdesign",
+        "en": "Character nail art"
+      },
+      {
+        "src": "Aloy.jpg",
+        "no": "Aloy",
+        "en": "Aloy"
+      },
+      {
+        "src": "Cruella%20Devil.jpg",
+        "no": "Cruella Devil",
+        "en": "Cruella Devil"
+      },
+      {
+        "src": "Ferb.jpg",
+        "no": "Ferb",
+        "en": "Ferb"
+      },
+      {
+        "src": "la%20bubu.jpg",
+        "no": "Labubu",
+        "en": "Labubu"
+      },
+      {
+        "src": "Scooby1.jpg",
+        "no": "Scooby1",
+        "en": "Scooby1"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "P%C3%A5skehare.jpg",
+        "no": "Påskehare",
+        "en": "Easter bunny"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "P%C3%A5skekylling.jpg",
+        "no": "Påskekylling",
+        "en": "Easter chick"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "easter.jpeg",
+        "no": "Påskenegler",
+        "en": "Easter nails"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Kvikklunsj.jpg",
+        "no": "Kvikklunsj",
+        "en": "Kvikklunsj"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Solo%20kvikklunsj.jpg",
+        "no": "Solo kvikklunsj",
+        "en": "Solo kvikklunsj"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Duck.jpg",
+        "no": "Duck",
+        "en": "Duck"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Duck.png",
+        "no": "Duck",
+        "en": "Duck"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "duckyeah.jpeg",
+        "no": "Andedesign",
+        "en": "Duck nail art"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Hello%20kitty%20christmas.jpg",
+        "no": "Hello Kitty – jul",
+        "en": "Hello Kitty – Christmas"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Nordlys%20vinter.jpg",
+        "no": "Nordlys og vinter",
+        "en": "Northern lights and winter"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Mikke%20og%20minni.jpg",
+        "no": "Mikke og Minni",
+        "en": "Mickey and Minnie"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "snoopy.png",
+        "no": "Snoopy",
+        "en": "Snoopy"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Bie.jpg",
+        "no": "Bie",
+        "en": "Bee"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Mixedmedia%20klovn.jpg",
+        "no": "Mixed media – klovn",
+        "en": "Mixed media – clown"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Havfrue.jpg",
+        "no": "Havfruenegler",
+        "en": "Mermaid nails"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Sommernegler.jpeg",
+        "no": "Sommernegler",
+        "en": "Summer nails"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "examen.jpeg",
+        "no": "Eksamen – negledesign",
+        "en": "Exam – nail design"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "examen2.jpeg",
+        "no": "Eksamen – detalj",
+        "en": "Exam – detail"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "examen%20stiletto.jpeg",
+        "no": "Eksamen – stiletto",
+        "en": "Exam – stiletto"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "tons.jpg",
+        "no": "Negldesign 1",
+        "en": "Nail design 1"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "tons1.jpg",
+        "no": "Negldesign 2",
+        "en": "Nail design 2"
+      }
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "tons2.jpg",
+        "no": "Negldesign 3",
+        "en": "Nail design 3"
+      }
+    ]
+  }
+];
+    const lightbox = document.getElementById('lightbox');
+    const largeImage = document.getElementById('largeImage');
+    const previousButton = document.getElementById('previousButton');
+    const nextButton = document.getElementById('nextButton');
+    const viewerCounter = document.getElementById('viewerCounter');
+    const viewerStage = document.getElementById('viewerStage');
+    let currentLanguage = 'no';
+    let activeEntry = null;
+    let photoIndex = 0;
+    let previousOverflow = '';
+
+    function updateViewer() {
+      if (!activeEntry) return;
+      const photo = activeEntry.photos[photoIndex];
+      largeImage.src = photo.src;
+      largeImage.alt = photo[currentLanguage];
+      const count = activeEntry.photos.length;
+      viewerCounter.textContent = (photoIndex + 1) + ' / ' + count;
+      previousButton.hidden = nextButton.hidden = count === 1;
+      previousButton.disabled = photoIndex === 0;
+      nextButton.disabled = photoIndex === count - 1;
+    }
+    function movePhoto(direction) {
+      if (!activeEntry) return;
+      const nextIndex = photoIndex + direction;
+      if (nextIndex < 0 || nextIndex >= activeEntry.photos.length) return;
+      photoIndex = nextIndex;
+      updateViewer();
+    }
+    function setLanguage(language) {
+      currentLanguage = language === 'en' ? 'en' : 'no';
+      const english = currentLanguage === 'en';
+      document.documentElement.lang = currentLanguage;
+      document.title = (english ? 'Gallery' : 'Galleri') + ' | Princezza Nails';
+      document.querySelectorAll('[data-no]').forEach(element => {
+        element.textContent = element.getAttribute('data-' + currentLanguage);
+      });
+      document.querySelectorAll('.gallery-item').forEach(button => {
+        const entry = galleryEntries[Number(button.dataset.entry)];
+        const label = entry.photos[0][currentLanguage];
+        button.querySelector('img').alt = label;
+        const count = entry.photos.length;
+        button.setAttribute('aria-label', (english ? 'Open: ' : 'Åpne: ') + label +
+          (count > 1 ? ', ' + count + (english ? ' photos' : ' bilder') : ''));
+      });
+      document.querySelectorAll('[data-count]').forEach(badge => {
+        badge.textContent = badge.dataset.count + (english ? ' photos' : ' bilder');
+      });
+      ['no', 'en'].forEach(lang => {
+        const button = document.getElementById(lang + 'Btn');
+        button.classList.toggle('active', lang === currentLanguage);
+        button.setAttribute('aria-pressed', String(lang === currentLanguage));
+      });
+      document.getElementById('homeLink').href = 'index.html?lang=' + currentLanguage;
+      document.getElementById('logoLink').href = 'index.html?lang=' + currentLanguage;
+      document.getElementById('aboutLink').href = 'ommeg.html?lang=' + currentLanguage;
+      lightbox.setAttribute('aria-label', english ? 'Photo viewer' : 'Bildevisning');
+      previousButton.setAttribute('aria-label', english ? 'Previous photo' : 'Forrige bilde');
+      nextButton.setAttribute('aria-label', english ? 'Next photo' : 'Neste bilde');
+      updateViewer();
+      try { localStorage.setItem('princezzaLanguage', currentLanguage); } catch (error) {}
+    }
+    let savedLanguage = 'no';
+    try { savedLanguage = localStorage.getItem('princezzaLanguage') || 'no'; } catch (error) {}
+    const requestedLanguage = new URLSearchParams(location.search).get('lang');
+    setLanguage(['no', 'en'].includes(requestedLanguage) ? requestedLanguage : savedLanguage);
+    document.querySelectorAll('.gallery-item').forEach(button => {
+      button.addEventListener('click', () => {
+        activeEntry = galleryEntries[Number(button.dataset.entry)];
+        photoIndex = 0;
+        updateViewer();
+        previousOverflow = document.body.style.overflow;
+        lightbox.showModal();
+        document.body.style.overflow = 'hidden';
+        document.getElementById('closeButton').focus();
+      });
+    });
+    previousButton.addEventListener('click', () => movePhoto(-1));
+    nextButton.addEventListener('click', () => movePhoto(1));
+    document.getElementById('closeButton').addEventListener('click', () => lightbox.close());
+    lightbox.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        movePhoto(event.key === 'ArrowLeft' ? -1 : 1);
+      }
+    });
+    lightbox.addEventListener('click', event => {
+      if (event.target === lightbox) lightbox.close();
+    });
+    let touchStart = null;
+    viewerStage.addEventListener('touchstart', event => {
+      touchStart = event.touches.length === 1
+        ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
+    }, { passive: true });
+    viewerStage.addEventListener('touchend', event => {
+      if (!touchStart || event.touches.length || !event.changedTouches.length) {
+        touchStart = null;
+        return;
+      }
+      const dx = event.changedTouches[0].clientX - touchStart.x;
+      const dy = event.changedTouches[0].clientY - touchStart.y;
+      touchStart = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        movePhoto(dx < 0 ? 1 : -1);
+      }
+    }, { passive: true });
+    viewerStage.addEventListener('touchcancel', () => { touchStart = null; }, { passive: true });
+    lightbox.addEventListener('close', () => {
+      document.body.style.overflow = previousOverflow;
+      largeImage.removeAttribute('src');
+      largeImage.alt = '';
+      activeEntry = null;
+      touchStart = null;
+    });
+  </script>
+</body>
+</html>
