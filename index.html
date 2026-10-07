@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Princezza Nails</title>
 
   <link rel="stylesheet"
@@ -57,6 +57,10 @@
     /* OM MEG */
     .ommeg-container {
       margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
     }
 
     .ommeg-knapp {
@@ -333,6 +337,7 @@
       .video-boks iframe {
         width: 100%;
         height: auto;
+        aspect-ratio: 16 / 9;
       }
 
       .bildegalleri img {
@@ -397,6 +402,10 @@
         data-no="Om meg"
         data-en="About me"
       >Om meg</span>
+    </a>
+    <a href="galleri.html" class="ommeg-knapp" id="galleryButton">
+      <i class="fas fa-images" aria-hidden="true"></i>
+      <span data-no="Galleri" data-en="Gallery">Galleri</span>
     </a>
   </div>
 
@@ -590,20 +599,24 @@
       document.getElementById('enBtn')
         .classList.toggle('active', language === 'en');
 
-      localStorage.setItem(
-        'princezzaLanguage',
-        language
-      );
+      try {
+        localStorage.setItem('princezzaLanguage', language);
+      } catch (error) {}
 
       /* Sørger for at Om meg-siden åpnes på riktig språk */
       document.getElementById('aboutButton').href =
         'ommeg.html?lang=' + language;
+      document.getElementById('galleryButton').href =
+        'galleri.html?lang=' + language;
     }
 
 
     /* Hent lagret språk */
-    const savedLanguage =
-      localStorage.getItem('princezzaLanguage') || 'no';
+    const requestedLanguage = new URLSearchParams(location.search).get('lang');
+    let storedLanguage = 'no';
+    try { storedLanguage = localStorage.getItem('princezzaLanguage'); } catch (error) {}
+    const savedLanguage = ['no', 'en'].includes(requestedLanguage)
+      ? requestedLanguage : (storedLanguage === 'en' ? 'en' : 'no');
 
     setLanguage(savedLanguage);
 
@@ -668,4 +681,3 @@
 
 </body>
 </html>
-```
