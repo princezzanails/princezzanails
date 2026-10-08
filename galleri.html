@@ -70,7 +70,7 @@
     <h1 data-no="Galleri" data-en="Gallery">Galleri</h1>
     <div class="gallery-layout">
       <div class="category-filters" role="group" aria-label="Kategorier / Categories">
-        <button type="button" class="category-button" data-category="characters" data-no="Karakterer og spill" data-en="Characters and games" aria-pressed="false">Karakterer og spill</button>
+        <button type="button" class="category-button" data-category="characters" data-no="Figurer og spill" data-en="Figures and games" aria-pressed="false">Figurer og spill</button>
         <button type="button" class="category-button" data-category="season" data-no="Høytid og sesong" data-en="Holidays and seasons" aria-pressed="false">Høytid og sesong</button>
         <button type="button" class="category-button" data-category="other" data-no="Andre design" data-en="Other designs" aria-pressed="false">Andre design</button>
         <button type="button" class="category-button" data-category="sculpture" data-no="Skulpturell neglekunst" data-en="Sculptural nail art" aria-pressed="false">Skulpturell neglekunst</button>
@@ -81,7 +81,7 @@
         <div class="mobile-category-picker">
           <label for="categorySelect" data-no="Kategori" data-en="Category">Kategori</label>
           <select id="categorySelect">
-            <option value="characters" data-no="Karakterer og spill" data-en="Characters and games">Karakterer og spill</option>
+            <option value="characters" data-no="Figurer og spill" data-en="Figures and games">Figurer og spill</option>
             <option value="season" data-no="Høytid og sesong" data-en="Holidays and seasons">Høytid og sesong</option>
             <option value="other" data-no="Andre design" data-en="Other designs">Andre design</option>
             <option value="sculpture" data-no="Skulpturell neglekunst" data-en="Sculptural nail art">Skulpturell neglekunst</option>
@@ -111,6 +111,73 @@
   <script>
     // Hvert sett har hovedbildet først, etterfulgt av detaljbildene.
     const galleryEntries = [
+  {
+    "photos": [
+      {
+        "src": "Braceface.jpg",
+        "no": "Braceface",
+        "en": "Braceface"
+      }
+    ],
+    "categories": [
+      "characters"
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Ursula.jpg",
+        "no": "Ursula – negleskulptur",
+        "en": "Ursula – nail sculpture"
+      },
+      {
+        "src": "Ursula%20glow.jpg",
+        "no": "Ursula – lyser i mørket",
+        "en": "Ursula – glow in the dark"
+      }
+    ],
+    "categories": [
+      "sculpture",
+      "characters"
+    ]
+  },
+  {
+    "photos": [
+      {
+        "src": "Amanda%20wedding.jpg",
+        "no": "Amanda – bryllupssett",
+        "en": "Amanda – wedding set"
+      },
+      {
+        "src": "Amanda%20Wedding1.jpg",
+        "no": "Amanda – bryllupssett – detalj 1",
+        "en": "Amanda – wedding set – detail 1"
+      },
+      {
+        "src": "Amanda%20Wedding%202.jpg",
+        "no": "Amanda – bryllupssett – detalj 2",
+        "en": "Amanda – wedding set – detail 2"
+      },
+      {
+        "src": "Amanda%20wedding%203.jpg",
+        "no": "Amanda – bryllupssett – detalj 3",
+        "en": "Amanda – wedding set – detail 3"
+      },
+      {
+        "src": "Amanda%20wedding%204.jpg",
+        "no": "Amanda – bryllupssett – detalj 4",
+        "en": "Amanda – wedding set – detail 4"
+      },
+      {
+        "src": "Amanda%20wedding5.jpg",
+        "no": "Amanda – bryllupssett – detalj 5",
+        "en": "Amanda – wedding set – detail 5"
+      }
+    ],
+    "categories": [
+      "sculpture"
+    ]
+  },
   {
     "photos": [
       {
@@ -379,7 +446,8 @@
       }
     ],
     "categories": [
-      "season"
+      "season",
+      "characters"
     ]
   },
   {
@@ -391,7 +459,8 @@
       }
     ],
     "categories": [
-      "season"
+      "season",
+      "characters"
     ]
   },
   {
@@ -484,7 +553,8 @@
       }
     ],
     "categories": [
-      "season"
+      "season",
+      "other"
     ]
   },
   {
@@ -541,6 +611,11 @@
         "src": "Havfrue.jpg",
         "no": "Havfruenegler",
         "en": "Mermaid nails"
+      },
+      {
+        "src": "Havrue%20glow.jpg",
+        "no": "Havfrue – lyser i mørket",
+        "en": "Mermaid – glow in the dark"
       }
     ],
     "categories": [
@@ -595,7 +670,7 @@
     const viewerStage = document.getElementById('viewerStage');
     let currentLanguage = 'no';
     let selectedCategory = 'characters';
-    const categoryLabels = {"characters": {"no": "Karakterer og spill", "en": "Characters and games"}, "season": {"no": "Høytid og sesong", "en": "Holidays and seasons"}, "other": {"no": "Andre design", "en": "Other designs"}, "sculpture": {"no": "Skulpturell neglekunst", "en": "Sculptural nail art"}, "hands": {"no": "Neglesett på hender", "en": "Nail sets on hands"}, "all": {"no": "Vis alle", "en": "View all"}};
+    const categoryLabels = {"characters": {"no": "Figurer og spill", "en": "Figures and games"}, "season": {"no": "Høytid og sesong", "en": "Holidays and seasons"}, "other": {"no": "Andre design", "en": "Other designs"}, "sculpture": {"no": "Skulpturell neglekunst", "en": "Sculptural nail art"}, "hands": {"no": "Neglesett på hender", "en": "Nail sets on hands"}, "all": {"no": "Vis alle", "en": "View all"}};
     let activeEntry = null;
     let photoIndex = 0;
     let previousOverflow = '';
